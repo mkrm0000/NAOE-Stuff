@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAOE 3103: Marine Engines & Fuels - Study Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #1a5276;
+            border-bottom: 3px solid #1a5276;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #1a5276;
+            background-color: #eaf2f8;
+            padding: 10px 15px;
+            border-left: 6px solid #2980b9;
+            border-radius: 4px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #2980b9;
+            border-bottom: 2px solid #d4e6f1;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h4 {
+            color: #34495e;
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+        .definition-box {
+            background-color: #f9ebea;
+            border-left: 6px solid #c0392b;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .definition-box strong {
+            color: #c0392b;
+        }
+        .theory-short {
+            background-color: #eafaf1;
+            border-left: 6px solid #27ae60;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .theory-short strong {
+            color: #27ae60;
+        }
+        .theory-simple {
+            background-color: #fef9e7;
+            border-left: 6px solid #f1c40f;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .theory-simple strong {
+            color: #d4ac0d;
+        }
+        ul, ol {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .formula {
+            background-color: #f4f6f7;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: inline-block;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>NAOE 3103: Marine Engines & Fuels<br><small>Combined Definitions & Theory Study Guide</small></h1>
+
+    <!-- ============================================ -->
+    <h2>1. Introduction to Marine Engines</h2>
+
+    <h3>Engine & Heat Engine</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong>
+        <ul>
+            <li><strong>Engine:</strong> A device that transforms one form of energy into another form.</li>
+            <li><strong>Heat Engine:</strong> A device that transforms the chemical energy of a fuel into thermal energy and utilizes this thermal energy to perform useful work.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> An engine converts energy into motion. A heat engine specifically uses fuel (chemical energy) to create heat, which then creates motion.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Imagine you have a toy car. The engine is the part that makes it go. A "heat engine" is a special type of engine that works by burning fuel (like gasoline) to make heat. That heat makes gas expand, and that expanding gas pushes parts inside the engine to make the car move. It's like when you rub your hands together to make them warm, but instead of just heat, you get movement.
+    </div>
+
+    <h3>Internal Combustion (IC) vs. External Combustion (EC) Engines</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong>
+        <ul>
+            <li><strong>Internal Combustion Engine (IC):</strong> Fuel burns <em>inside</em> the engine cylinder/combustion chamber. The combustion gases themselves act as the working fluid.</li>
+            <li><strong>External Combustion Engine (EC):</strong> Fuel burns <em>outside</em> the engine, in a furnace/boiler. A separate working fluid (like steam) is heated externally.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> In an IC engine, the explosion happens right inside the engine's cylinders (like in a car). In an EC engine, the fire is kept separate, and it heats up water to make steam, which then powers the engine (like an old steam train).
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Think of a car engine. The tiny explosions happen right inside the metal tubes (cylinders). That's "Internal Combustion." Now think of an old steam locomotive. There's a big fire in a box (the boiler) that heats water to make steam. The steam travels through pipes to push a piston. The fire never touches the piston. That's "External Combustion."
+    </div>
+
+    <h3>Engine Components</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> The basic parts of a reciprocating engine include:
+        <ul>
+            <li><strong>Cylinder:</strong> The tube where the piston moves.</li>
+            <li><strong>Piston:</strong> The moving part that slides up and down inside the cylinder.</li>
+            <li><strong>Connecting Rod:</strong> Links the piston to the crankshaft.</li>
+            <li><strong>Crankshaft:</strong> Converts the up-and-down motion of the piston into rotational motion.</li>
+            <li><strong>Valves:</strong> Doors that let air/fuel in (Inlet Valve) and exhaust out (Exhaust Valve).</li>
+            <li><strong>Spark Plug (SI) / Fuel Injector (CI):</strong> Ignites the fuel (spark) or sprays the fuel (injector).</li>
+            <li><strong>Flywheel:</strong> A heavy wheel that keeps the engine spinning smoothly.</li>
+            <li><strong>Camshaft:</strong> A rotating shaft that opens and closes the valves.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> The cylinder is the chamber. The piston moves inside it. The connecting rod connects the piston to the crankshaft, which turns the motion into rotation. Valves control the flow of air and exhaust. The spark plug or injector starts the fire.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Imagine a syringe. The tube is the cylinder. The plunger is the piston. When you push the plunger, you're compressing air. The connecting rod is like your arm, connecting the plunger to a crank (crankshaft) that turns a wheel. The valves are like little doors that open to let air in and let smoke out. The spark plug is like a tiny lighter that creates a spark to make the fuel go "boom."
+    </div>
+
+    <h3>Engine Terminology</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong>
+        <ul>
+            <li><strong>Top Dead Centre (TDC):</strong> The highest point the piston reaches in the cylinder.</li>
+            <li><strong>Bottom Dead Centre (BDC):</strong> The lowest point the piston reaches in the cylinder.</li>
+            <li><strong>Bore:</strong> The diameter of the cylinder.</li>
+            <li><strong>Stroke:</strong> The distance the piston travels from TDC to BDC.</li>
+            <li><strong>Clearance Volume:</strong> The small volume left above the piston when it is at TDC.</li>
+            <li><strong>Swept Volume:</strong> The volume the piston displaces as it moves from TDC to BDC.</li>
+            <li><strong>Compression Ratio:</strong> The ratio of the total volume (swept + clearance) to the clearance volume.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> TDC is the top of the piston's travel, BDC is the bottom. Bore is the width, Stroke is the height. The compression ratio tells you how much the engine squeezes the air/fuel mixture.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Think of a piston like a elevator in a very narrow shaft. The top floor is TDC, the bottom floor is BDC. The width of the shaft is the Bore. The distance between floors is the Stroke. The compression ratio is like how much you squeeze a sponge. A high compression ratio means you squeeze the air and fuel into a tiny space, which makes the explosion more powerful.
+    </div>
+
+    <!-- ============================================ -->
+    <h2>2. Engine Cycles & Performance</h2>
+
+    <h3>Four-Stroke Cycle (SI & CI)</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> A cycle completed in four strokes of the piston (or two revolutions of the crankshaft): Intake, Compression, Expansion (Power), Exhaust.
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> The engine takes in air/fuel (Intake), squeezes it (Compression), ignites it to push the piston down (Power), and pushes out the smoke (Exhaust). This takes two full turns of the crankshaft.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> It's like breathing. <strong>1. Breathe In:</strong> The piston goes down and sucks in air and fuel. <strong>2. Hold it:</strong> The piston goes up and squeezes that air and fuel tightly. <strong>3. Pop!:</strong> A spark (or the heat of compression) makes it explode, pushing the piston down hard. This is what makes the car go. <strong>4. Breathe Out:</strong> The piston comes back up and pushes the smoke out the exhaust pipe.
+    </div>
+
+    <h3>Two-Stroke Cycle</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> A cycle completed in two strokes of the piston (or one revolution of the crankshaft). There is one power stroke for every revolution.
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> The engine combines the intake and exhaust into one step. The piston goes down (Power + Exhaust) and then up (Compression + Intake). It fires every time the piston goes down.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> This is a simpler, faster engine. Instead of four steps, it does it in two. When the piston goes down, it pushes out the old smoke and sucks in new air at the same time. When it goes up, it squeezes the new air. Then it fires. It's like a person breathing very fast, taking a breath and exhaling in one quick motion.
+    </div>
+
+    <h3>Otto Cycle (SI Engine)</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> The ideal thermodynamic cycle for a spark-ignition engine. It consists of two isentropic (adiabatic) processes and two constant-volume processes. Heat is added at constant volume.
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> The Otto cycle is the mathematical model for a gasoline engine. It assumes the fuel burns instantly (constant volume) and the piston moves without any heat loss.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> This is the "perfect world" version of a gasoline engine. In this perfect world, the explosion happens instantly (like a bomb), and no heat escapes. It helps engineers calculate the maximum possible efficiency of an engine.
+    </div>
+
+    <h3>Diesel Cycle (CI Engine)</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> The ideal thermodynamic cycle for a compression-ignition engine. It consists of two isentropic processes, one constant-pressure process (heat addition), and one constant-volume process (heat rejection).
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> The Diesel cycle is the mathematical model for a diesel engine. Unlike the Otto cycle, heat is added at a constant pressure, not constant volume, because the fuel is injected gradually.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> This is the "perfect world" version of a diesel engine. In a diesel, the fuel is sprayed in slowly, so the burning happens at a steady pressure instead of a sudden explosion. This cycle helps engineers figure out how efficient a diesel engine can be.
+    </div>
+
+    <h3>Engine Performance Parameters</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong>
+        <ul>
+            <li><strong>Indicated Power (ip):</strong> The power developed inside the engine cylinder.</li>
+            <li><strong>Brake Power (bp):</strong> The useful power available at the engine's output shaft (flywheel).</li>
+            <li><strong>Mechanical Efficiency:</strong> The ratio of brake power to indicated power (<span class="formula">bp / ip</span>).</li>
+            <li><strong>Brake Thermal Efficiency:</strong> The ratio of brake power to the energy supplied by the fuel.</li>
+            <li><strong>Volumetric Efficiency:</strong> How well the engine breathes. It's the ratio of the actual volume of air drawn in to the theoretical volume.</li>
+            <li><strong>Mean Effective Pressure (MEP):</strong> A theoretical constant pressure that, if applied to the piston during the power stroke, would produce the same work as the actual cycle.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Indicated power is what the engine makes inside. Brake power is what you actually get at the wheels. Mechanical efficiency is how much you lose to friction. Volumetric efficiency is how well the engine breathes. MEP is a way to measure the average push on the piston.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Imagine you're riding a bike. The power your legs make is "Indicated Power." The power that actually reaches the back wheel is "Brake Power." You lose some power because the chain is a bit rusty (friction). "Mechanical Efficiency" is how much of your leg power makes it to the wheel. "Volumetric Efficiency" is how deeply you breathe – a bigger breath means more power. "MEP" is like the average force you apply to the pedals.
+    </div>
+
+    <!-- ============================================ -->
+    <h2>3. Actual Cycles & Combustion</h2>
+
+    <h3>Losses in Actual Engines</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> Real engines do not perform like ideal cycles. Losses occur due to:
+        <ul>
+            <li><strong>Time Loss:</strong> Combustion takes time, not instant.</li>
+            <li><strong>Heat Loss:</strong> Heat escapes through cylinder walls.</li>
+            <li><strong>Exhaust Blowdown Loss:</strong> Opening the exhaust valve early loses some power.</li>
+            <li><strong>Pumping Losses:</strong> Work needed to pull air in and push exhaust out.</li>
+            <li><strong>Incomplete Combustion:</strong> Not all fuel burns.</li>
+            <li><strong>Friction:</strong> Moving parts rubbing together.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Real engines lose power because combustion isn't instantaneous, heat leaks out, and it takes work to breathe. These losses mean the actual efficiency is lower than the theoretical one.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> The "perfect world" engine doesn't exist. In the real world, the explosion takes a tiny bit of time, so some energy is wasted. The engine gets hot, so heat escapes into the air instead of pushing the piston. The engine has to work hard just to suck in air and blow out smoke. All these things steal power, so you never get 100% of the energy from the fuel.
+    </div>
+
+    <h3>Combustion in CI Engines</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> The combustion in a CI engine happens in four stages:
+        <ol>
+            <li><strong>Ignition Delay Period:</strong> The time between fuel injection and the start of burning.</li>
+            <li><strong>Period of Rapid Combustion:</strong> The fuel that accumulated during the delay burns rapidly, causing a sharp pressure rise.</li>
+            <li><strong>Period of Controlled Combustion:</strong> The rate of burning is controlled by the rate of fuel injection.</li>
+            <li><strong>Period of After-Burning:</strong> The remaining unburnt fuel burns as it mixes with oxygen.</li>
+        </ol>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> When diesel is injected, it doesn't catch fire immediately (Ignition Delay). Then it burns very fast (Rapid Combustion). Then it burns steadily as more fuel is injected (Controlled Combustion). Finally, any leftover fuel burns (After-Burning).
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Imagine you spray hairspray into a hot oven. It doesn't catch fire instantly. There's a tiny pause (Ignition Delay). Then <em>WHOOSH</em>, it all lights up at once (Rapid Combustion). If you keep spraying, it keeps burning steadily (Controlled Combustion). When you stop spraying, the last bits of mist still burn for a moment (After-Burning).
+    </div>
+
+    <h3>Knocking (Detonation)</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> Knocking is the sharp sound and vibration caused by the spontaneous auto-ignition of the end gas (the unburned portion of the fuel-air mixture) before the flame front reaches it.
+        <ul>
+            <li><strong>In SI Engines:</strong> The end gas ignites on its own, causing a sudden pressure spike.</li>
+            <li><strong>In CI Engines:</strong> Knocking occurs if the ignition delay is too long, causing too much fuel to accumulate and then burn all at once.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Knocking is an uncontrolled explosion. In a gasoline engine, it's when the fuel explodes on its own before the spark plug fires. In a diesel engine, it's when too much fuel builds up and then explodes all at once. It sounds like a "ping" or "knock."
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Imagine you're popping popcorn. You want it to pop one kernel at a time, gently. Knocking is like when a whole bunch of kernels pop at the exact same time – it's a loud, violent "BANG!" instead of a gentle "pop, pop, pop." In an engine, this is bad because it can damage the engine parts.
+    </div>
+
+    <h3>Combustion Chambers (CI Engines)</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> The shape of the space where combustion happens.
+        <ul>
+            <li><strong>Direct Injection (DI) / Open Chamber:</strong> The entire combustion volume is in the main cylinder. Fuel is injected directly into this space.</li>
+            <li><strong>Indirect Injection (IDI) / Divided Chamber:</strong> The combustion space is divided into two parts: a main chamber in the cylinder and a smaller chamber in the cylinder head.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> DI engines inject fuel directly into the main cylinder. They are efficient but noisy. IDI engines inject fuel into a small pre-chamber first, which makes them smoother and quieter but less efficient.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Think of a fireplace. A "Direct Injection" engine is like throwing a log directly into a big fire. It burns hot and fast. An "Indirect Injection" engine is like putting the log into a small metal box first, then putting that box in the fire. It burns slower and quieter, but it doesn't give off as much heat.
+    </div>
+
+    <!-- ============================================ -->
+    <h2>4. Supercharging & Turbocharging</h2>
+
+    <h3>Supercharger & Turbocharger</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong>
+        <ul>
+            <li><strong>Supercharging:</strong> The method of supplying air or air-fuel mixture at a pressure higher than atmospheric pressure to the engine. The device is called a <strong>Supercharger</strong>.</li>
+            <li><strong>Turbocharging:</strong> A type of supercharging where the supercharger (compressor) is driven by a gas turbine that uses the energy in the exhaust gases. There is no mechanical linkage to the engine.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Supercharging forces more air into the engine so it can burn more fuel and make more power. A supercharger is driven by a belt from the engine. A turbocharger is driven by the engine's own exhaust gases, making it more efficient.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> An engine is like a person running. If you just breathe normally, you can only run so fast. Supercharging is like giving the person an oxygen mask. A supercharger is a fan powered by the person's own legs (the engine). A turbocharger is a fan powered by the person's own breath (the exhaust). With more oxygen, they can burn more food (fuel) and run much faster.
+    </div>
+
+    <h3>Scavenging</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> The process of completely expelling the exhaust gases from the cylinder and filling it with fresh air.
+        <ul>
+            <li><strong>Cross-flow Scavenging:</strong> Inlet and exhaust ports on opposite sides.</li>
+            <li><strong>Loop Scavenging:</strong> Inlet and exhaust ports on the same side.</li>
+            <li><strong>Uniflow Scavenging:</strong> Inlet ports at the bottom, exhaust valve at the top. Air flows in one direction.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Scavenging is the process of cleaning out the old exhaust gases and filling the cylinder with fresh air. It's very important in two-stroke engines. Different port arrangements (Cross, Loop, Uniflow) determine how well the cylinder is cleaned.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Imagine a room full of smoke. You need to open a window and a door to blow all the smoke out and let fresh air in. That's scavenging. If the window and door are on opposite walls, the air flows straight through (Cross-flow). If they're on the same wall, the air loops around (Loop). If you have a vent at the bottom and a chimney at the top, the air flows straight up (Uniflow). Uniflow is the best at cleaning the room.
+    </div>
+
+    <!-- ============================================ -->
+    <h2>5. Marine Fuels</h2>
+
+    <h3>Distillation & Refining</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong>
+        <ul>
+            <li><strong>Distillation:</strong> The process of separating crude oil into different fractions (Petrol, Kerosene, Diesel, Heavy Fuel Oil) based on their boiling points.</li>
+            <li><strong>Cracking:</strong> Breaking down large, complex hydrocarbon molecules into simpler, more useful ones (like gasoline).</li>
+            <li><strong>Hydrogenation:</strong> Adding hydrogen atoms to a molecule.</li>
+            <li><strong>Alkylation:</strong> Combining small molecules (like isobutane and isobutylene) to form a larger, high-octane molecule (iso-octane).</li>
+            <li><strong>Isomerization:</strong> Rearranging the atoms within a molecule without changing its formula.</li>
+            <li><strong>Aromatization:</strong> Converting a straight-chain hydrocarbon into an aromatic compound (like toluene).</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Crude oil is heated and separated into different fuels by distillation. Cracking breaks heavy oils into lighter ones. Other processes like alkylation and isomerization are used to improve the quality (octane rating) of gasoline.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Crude oil is a mix of many different liquids, like a fruit smoothie. Distillation is like letting it settle and separating the layers by weight. Cracking is like taking a big, heavy lump of fruit and cutting it into smaller, lighter pieces. The other processes are like adding sugar or flavoring to make the fuel better for the engine.
+    </div>
+
+    <h3>Fuel Rating: Octane & Cetane Numbers</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong>
+        <ul>
+            <li><strong>Octane Number (SI Engines):</strong> A measure of a fuel's resistance to knocking (auto-ignition). Iso-octane is 100, n-heptane is 0. Higher is better for gasoline.</li>
+            <li><strong>Cetane Number (CI Engines):</strong> A measure of a fuel's ignition quality (how easily it auto-ignites). n-Hexadecane (cetane) is 100, 1-Methylnaphthalene is 0. Higher is better for diesel.</li>
+            <li><strong>Calorific Value (CV):</strong> The amount of heat energy released when a unit mass of fuel is completely burned.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Octane number is for gasoline – it tells you how well it resists knocking. Cetane number is for diesel – it tells you how easily it ignites. Calorific value is how much energy is in the fuel.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Octane is like a "chill pill" for gasoline. A high octane number means the fuel is calm and won't explode early (which is good). Cetane is like a "cup of coffee" for diesel. A high cetane number means the fuel is eager to ignite quickly (which is good). Calorific value is like the "calories" in food – it tells you how much energy you get from a spoonful of fuel.
+    </div>
+
+    <!-- ============================================ -->
+    <h2>6. Renewable Energy</h2>
+
+    <h3>Renewable Energy</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> Energy from resources that are replenished at the same rate that they are used (e.g., solar, wind, wave, tidal, salinity gradient).
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Renewable energy comes from sources that never run out, like the sun, wind, and ocean. It's clean and sustainable.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Think of a field of grass. If you let a few cows eat some grass, it grows back. That's renewable. If you dig up the grass and dirt to burn it, it won't come back. That's non-renewable (like coal or oil). Renewable energy is using the sun, wind, and waves to make electricity without using up the Earth's resources.
+    </div>
+
+    <h3>Wave Energy</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> Energy harnessed from the motion of ocean waves. The power equation is:
+        <br><span class="formula">Power (kW/m) = (ρg² / 64π) * H² * T ≈ (0.5 kW/m³s) * H² * T</span>
+        <br>where H is wave height (m) and T is wave period (s).
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Wave energy is captured from the up-and-down motion of waves. The power depends on the height of the wave and how fast it's moving (period).
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Imagine you're at the beach and a wave hits you. That's energy. To get electricity, we put special machines in the water that move up and down with the waves. The bigger the waves and the faster they come, the more electricity we can make.
+    </div>
+
+    <h3>Tidal Energy</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> Energy derived from the gravitational interaction between the Earth, Moon, and Sun, which causes periodic rises and falls in sea levels (tides).
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Tidal energy uses the rise and fall of the ocean (tides) to spin turbines and make electricity. It's very predictable because tides happen on a schedule.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> The moon's gravity pulls on the ocean, making the water rise (high tide) and fall (low tide). We can build a dam-like structure across a bay. When the tide comes in, it fills up the bay. When the tide goes out, the water rushes back through holes with turbines in them, making electricity. It's like a giant water wheel that works twice a day.
+    </div>
+
+    <h3>Ocean Thermal Energy Conversion (OTEC)</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> A process that uses the temperature difference between warm surface seawater and cold deep seawater to generate electricity.
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> OTEC uses the temperature difference between warm surface water and cold deep water to boil a fluid, which spins a turbine to make electricity.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> The ocean is warm on top and cold at the bottom. OTEC uses this difference. It takes a liquid with a low boiling point (like ammonia) and uses the warm surface water to boil it into a gas. The gas spins a turbine. Then, it uses the cold deep water to cool the gas back into a liquid, and the cycle repeats.
+    </div>
+
+    <h3>Salinity Gradient Energy</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> Energy generated by exploiting the difference in salt concentration between freshwater and seawater (e.g., at a river mouth).
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Salinity gradient energy uses the osmotic pressure difference between fresh water and salt water to generate electricity.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> When fresh water from a river meets salt water from the sea, nature wants to mix them. This mixing releases energy. We can put a special membrane between them that lets water through but not salt. The fresh water pushes through the membrane, creating pressure that can spin a turbine. It's a very clean way to make electricity.
+    </div>
+
+    <!-- ============================================ -->
+    <h2>7. Gas Turbines & Nuclear Power</h2>
+
+    <h3>Gas Turbine</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> A type of internal combustion engine that uses a compressor, a combustion chamber, and a turbine. It operates on the Brayton cycle.
+        <ul>
+            <li><strong>Compressor:</strong> Draws in and compresses air.</li>
+            <li><strong>Combustion Chamber:</strong> Burns fuel with the compressed air.</li>
+            <li><strong>Turbine:</strong> Extracts energy from the hot gases to drive the compressor and produce power.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> A gas turbine sucks in air, squeezes it, mixes it with fuel and burns it, and then uses the hot exhaust to spin a turbine. It's used in jet engines and power plants.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Think of a jet engine. It's like a giant fan. First, it sucks in a lot of air. Then it squeezes that air really tight. Then it sprays in fuel and lights it on fire. The hot air explodes out the back, spinning a turbine wheel that keeps the fan going. It's a continuous, powerful cycle.
+    </div>
+
+    <h3>Nuclear Power Plant</h3>
+    <div class="definition-box">
+        <strong>Definition:</strong> A power plant that uses nuclear fission to generate heat, which is used to produce steam to drive a turbine and generate electricity.
+        <ul>
+            <li><strong>Nuclear Fission:</strong> Splitting a heavy atom (like Uranium-235) to release energy.</li>
+            <li><strong>Reactor Core:</strong> Where fission happens.</li>
+            <li><strong>Control Rods:</strong> Absorb neutrons to control the reaction.</li>
+            <li><strong>Steam Generator:</strong> Transfers heat to water to make steam.</li>
+            <li><strong>Containment Structure:</strong> A reinforced concrete dome to prevent radiation leaks.</li>
+        </ul>
+    </div>
+    <div class="theory-short">
+        <strong>Theory [Short]:</strong> Nuclear power plants split atoms to create heat. This heat turns water into steam, which spins a turbine to make electricity. It's basically a very fancy steam engine powered by atoms instead of coal.
+    </div>
+    <div class="theory-simple">
+        <strong>Theory [Explained Simply]:</strong> Instead of burning coal or gas to make heat, a nuclear plant uses tiny atoms. When you split an atom, it releases a huge amount of heat. This heat is used to boil water into steam. The steam spins a big fan (turbine) that makes electricity. The whole thing is inside a thick concrete dome to keep the radiation safe inside.
+    </div>
+
+</div>
+
+</body>
+</html>
