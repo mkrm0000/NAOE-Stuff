@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NAOE 3103: Marine Engines & Fuels - Study Guide</title>
     <style>
+        /* --- Base Styles --- */
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.7;
@@ -12,6 +16,7 @@
             background-color: #f4f7f6;
             margin: 0;
             padding: 20px;
+            -webkit-text-size-adjust: 100%;
         }
         .container {
             max-width: 1000px;
@@ -20,6 +25,8 @@
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
         h1 {
             text-align: center;
@@ -27,26 +34,69 @@
             border-bottom: 3px solid #1a5276;
             padding-bottom: 10px;
             margin-bottom: 30px;
+            font-size: 2rem;
+            line-height: 1.3;
+        }
+        h1 small {
+            font-size: 0.6em;
+            display: block;
+            margin-top: 5px;
+            color: #5d6d7e;
         }
         h2 {
             color: #1a5276;
             background-color: #eaf2f8;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border-left: 6px solid #2980b9;
             border-radius: 4px;
             margin-top: 40px;
+            font-size: 1.5rem;
+            line-height: 1.3;
         }
         h3 {
             color: #2980b9;
             border-bottom: 2px solid #d4e6f1;
             padding-bottom: 5px;
             margin-top: 30px;
+            font-size: 1.25rem;
         }
         h4 {
             color: #34495e;
             margin-bottom: 5px;
             margin-top: 20px;
+            font-size: 1.1rem;
         }
+        p {
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .formula {
+            background-color: #f4f6f7;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            display: inline-block;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            font-size: 0.95em;
+            word-break: break-word;
+        }
+
+        /* --- Info Boxes --- */
         .definition-box {
             background-color: #f9ebea;
             border-left: 6px solid #c0392b;
@@ -77,27 +127,97 @@
         .theory-simple strong {
             color: #d4ac0d;
         }
-        ul, ol {
-            margin-top: 5px;
-            margin-bottom: 15px;
+
+        /* --- Responsive Images & Tables --- */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border-radius: 4px;
         }
-        li {
-            margin-bottom: 8px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+            overflow-x: auto;
+            display: block;
         }
-        .highlight {
-            background-color: #fff3cd;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-        .formula {
-            background-color: #f4f6f7;
-            padding: 10px;
-            border-radius: 5px;
-            font-family: 'Courier New', Courier, monospace;
-            display: inline-block;
-            margin: 5px 0;
+        th, td {
             border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #eaf2f8;
+            color: #1a5276;
+        }
+
+        /* --- Mobile Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+                border-radius: 8px;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            h2 {
+                font-size: 1.25rem;
+                padding: 10px 12px;
+                margin-top: 30px;
+            }
+            h3 {
+                font-size: 1.1rem;
+                margin-top: 25px;
+            }
+            h4 {
+                font-size: 1rem;
+            }
+            .definition-box, .theory-short, .theory-simple {
+                padding: 12px 15px;
+                margin: 10px 0;
+                border-left-width: 4px;
+            }
+            .formula {
+                display: block;
+                padding: 10px;
+                font-size: 0.85em;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 0.85em;
+            }
+            ul, ol {
+                padding-left: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3rem;
+            }
+            h2 {
+                font-size: 1.1rem;
+            }
+            h3 {
+                font-size: 1rem;
+            }
+            .container {
+                padding: 12px;
+            }
+            th, td {
+                padding: 6px;
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
