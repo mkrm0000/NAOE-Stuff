@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAOE 3103 · Marine Engines & Fuels · Formula Sheet</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #eef3f9;
+            margin: 0;
+            padding: 20px 10px;
+            color: #1e2a41;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0, 20, 30, 0.12);
+            padding: 28px 24px 36px;
+        }
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #0b2d4b;
+            margin: 0 0 4px;
+            border-bottom: 4px solid #0b2d4b;
+            padding-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+        h1 small {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #526b84;
+            margin-top: 8px;
+            letter-spacing: 0.2px;
+        }
+        .subhead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 16px 0 18px;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: #2c4b6c;
+            font-weight: 500;
+            font-size: 0.95rem;
+            background: #e9f1fa;
+            padding: 10px 18px;
+            border-radius: 40px;
+        }
+        .formula-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 10px;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #d9e2ed;
+            border-radius: 18px;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            overflow: hidden;
+            transition: box-shadow 0.15s ease;
+        }
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 20, 40, 0.08);
+        }
+        .card-header {
+            background: #f5faff;
+            padding: 14px 20px 12px;
+            border-bottom: 1px solid #cfddee;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #103a5e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-header .badge {
+            background: #103a5e;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .card-body {
+            padding: 18px 22px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .theory {
+            font-size: 0.98rem;
+            color: #1e3b5c;
+            background: #f6faff;
+            padding: 10px 16px;
+            border-radius: 12px;
+            border-left: 5px solid #2b6f9e;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .theory strong {
+            color: #0b2d4b;
+        }
+        .math-box {
+            background: #f9fcff;
+            padding: 16px 18px;
+            border-radius: 14px;
+            border: 1px solid #d2e2f2;
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            font-size: 1.15rem;
+            color: #103a5e;
+        }
+        .math-box math {
+            font-size: 1.2rem;
+        }
+        .trick {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: #fef9e7;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border-left: 5px solid #e6b800;
+            font-size: 0.95rem;
+            color: #2e2a1a;
+            line-height: 1.5;
+        }
+        .trick::before {
+            content: "🧠";
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .trick strong {
+            color: #8a6d00;
+        }
+        .footer-note {
+            margin-top: 36px;
+            padding-top: 18px;
+            border-top: 1px dashed #b8cee3;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5b7590;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 16px; }
+            h1 { font-size: 1.5rem; }
+            .card-header { font-size: 1rem; padding: 12px 14px; }
+            .card-body { padding: 14px 14px 16px; }
+            .math-box { font-size: 1rem; padding: 12px 8px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>⛴️ NAOE 3103 · Marine Engines &amp; Fuels
+        <small>Formula sheet with theory, MathML &amp; memory tricks</small>
+    </h1>
+    <div class="subhead">
+        <span>📘 IC Engines · Air Standard Cycles · Fuels · Performance · Turbocharging</span>
+        <span>⚡ 16 core formulas</span>
+    </div>
+
+    <div class="formula-grid">
+
+        <!-- 1. Thermal efficiency (general) -->
+        <div class="card">
+            <div class="card-header">🔥 1. Thermal Efficiency <span class="badge">General</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> The ratio of work done to heat supplied. It tells you how well an engine converts heat into useful work.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <msub><mi>η</mi><mtext>th</mtext></msub>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mtext>Work done</mtext>
+                            <mtext>Heat supplied</mtext>
+                        </mfrac>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mi>W</mi>
+                            <msub><mi>Q</mi><mi>s</mi></msub>
+                        </mfrac>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Work over heat" — what you get divided by what you paid for.</div>
+            </div>
+        </div>
+
+        <!-- 2. Otto cycle efficiency -->
+        <div class="card">
+            <div class="card-header">🌀 2. Otto Cycle Efficiency <span class="badge">SI Engine</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> For a constant‑volume heat addition cycle (petrol engine), efficiency depends only on compression ratio <em>r</em> and specific heat ratio <em>γ</em>.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <msub><mi>η</mi><mtext>Otto</mtext></msub>
+                        <mo>=</mo>
+                        <mn>1</mn>
+                        <mo>−</mo>
+                        <mfrac>
+                            <mn>1</mn>
+                            <msup><mi>r</mi><mrow><mi>γ</mi><mo>−</mo><mn>1</mn></mrow></msup>
+                        </mfrac>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "One minus one over r‑to‑the‑gamma‑minus‑one." Higher compression → higher efficiency.</div>
+            </div>
+        </div>
+
+        <!-- 3. Diesel cycle efficiency -->
+        <div class="card">
+            <div class="card-header">⛽ 3. Diesel Cycle Efficiency <span class="badge">CI Engine</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> For constant‑pressure heat addition (diesel cycle), efficiency depends on compression ratio <em>r</em>, cutoff ratio <em>r<sub>c</sub></em>, and <em>γ</em>.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <msub><mi>η</mi><mtext>Diesel</mtext></msub>
+                        <mo>=</mo>
+                        <mn>1</mn>
+                        <mo>−</mo>
+                        <mfrac>
+                            <mn>1</mn>
+                            <msup><mi>r</mi><mrow><mi>γ</mi><mo>−</mo><mn>1</mn></mrow></msup>
+                        </mfrac>
+                        <mo>⋅</mo>
+                        <mfrac>
+                            <msub><mi>r</mi><mi>c</mi></msub><mo>−</mo><mn>1</mn>
+                            <mrow>
+                                <mi>γ</mi>
+                                <mo>(</mo>
+                                <msub><mi>r</mi><mi>c</mi></msub>
+                                <mo>−</mo>
+                                <mn>1</mn>
+                                <mo>)</mo>
+                            </mrow>
+                        </mfrac>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Otto with a cutoff correction." Diesel is less efficient than Otto for same <em>r</em>.</div>
+            </div>
+        </div>
+
+        <!-- 4. Carnot efficiency -->
+        <div class="card">
+            <div class="card-header">❄️ 4. Carnot Efficiency <span class="badge">Ideal Limit</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Maximum possible efficiency between two temperature reservoirs. No real engine can beat it.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <msub><mi>η</mi><mtext>Carnot</mtext></msub>
+                        <mo>=</mo>
+                        <mn>1</mn>
+                        <mo>−</mo>
+                        <mfrac>
+                            <msub><mi>T</mi><mi>L</mi></msub>
+                            <msub><mi>T</mi><mi>H</mi></msub>
+                        </mfrac>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "One minus cold over hot." Temperatures in Kelvin!</div>
+            </div>
+        </div>
+
+        <!-- 5. Indicated Power -->
+        <div class="card">
+            <div class="card-header">⚙️ 5. Indicated Power (ip) <span class="badge">Performance</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Power developed inside the cylinder, based on mean effective pressure, swept volume, and cycles per second.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <mi>ip</mi>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mrow>
+                                <msub><mi>p</mi><mi>im</mi></msub>
+                                <mi>L</mi>
+                                <mi>A</mi>
+                                <mi>n</mi>
+                                <mi>K</mi>
+                            </mrow>
+                            <mn>60000</mn>
+                        </mfrac>
+                        <mspace width="0.5em"/>
+                        <mtext>(kW)</mtext>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "P‑L‑A‑N‑K over 60k" — pressure × length × area × speed × cylinders ÷ 60,000.</div>
+            </div>
+        </div>
+
+        <!-- 6. Brake Power -->
+        <div class="card">
+            <div class="card-header">🛞 6. Brake Power (bp) <span class="badge">Performance</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Useful power at the crankshaft. Measured with a dynamometer.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <mi>bp</mi>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mrow>
+                                <mn>2</mn>
+                                <mi>π</mi>
+                                <mi>N</mi>
+                                <mi>T</mi>
+                            </mrow>
+                            <mn>60000</mn>
+                        </mfrac>
+                        <mspace width="0.5em"/>
+                        <mtext>(kW)</mtext>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Two pi N T over sixty thousand." Torque in N·m, speed in rpm.</div>
+            </div>
+        </div>
+
+        <!-- 7. Mechanical Efficiency -->
+        <div class="card">
+            <div class="card-header">🔗 7. Mechanical Efficiency <span class="badge">Performance</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Ratio of brake power to indicated power. Accounts for friction losses.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <msub><mi>η</mi><mi>m</mi></msub>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mi>bp</mi>
+                            <mi>ip</mi>
+                        </mfrac>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mi>bmep</mi>
+                            <mi>imep</mi>
+                        </mfrac>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Brake over indicated." If no friction, η<sub>m</sub> = 1.</div>
+            </div>
+        </div>
+
+        <!-- 8. Volumetric Efficiency -->
+        <div class="card">
+            <div class="card-header">🌬️ 8. Volumetric Efficiency <span class="badge">Breathing</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> How well the engine fills the cylinder with fresh air compared to ideal.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <msub><mi>η</mi><mi>v</mi></msub>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mrow>
+                                <msub><mover><mi>m</mi><mo>˙</mo></mover><mi>a</mi></msub>
+                                <mo>/</mo>
+                                <msub><mi>ρ</mi><mi>a</mi></msub>
+                            </mrow>
+                            <mrow>
+                                <msub><mi>V</mi><mtext>disp</mtext></msub>
+                                <mi>N</mi>
+                                <mo>/</mo>
+                                <mn>2</mn>
+                            </mrow>
+                        </mfrac>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Actual air / ideal air." For 4‑stroke, N/2 because one intake per two revs.</div>
+            </div>
+        </div>
+
+        <!-- 9. Brake Thermal Efficiency -->
+        <div class="card">
+            <div class="card-header">🌡️ 9. Brake Thermal Efficiency <span class="badge">Overall</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> How efficiently fuel energy is converted into brake power.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <msub><mi>η</mi><mtext>bth</mtext></msub>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mi>bp</mi>
+                            <mi>E</mi>
+                        </mfrac>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mi>bp</mi>
+                            <mrow>
+                                <msub><mover><mi>m</mi><mo>˙</mo></mover><mi>f</mi></msub>
+                                <mo>×</mo>
+                                <mi>CV</mi>
+                            </mrow>
+                        </mfrac>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Brake power over fuel energy rate." CV = calorific value.</div>
+            </div>
+        </div>
+
+        <!-- 10. Specific Fuel Consumption -->
+        <div class="card">
+            <div class="card-header">⛽ 10. Specific Fuel Consumption (sfc) <span class="badge">Economy</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Fuel consumed per unit power per unit time. Lower is better.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <mi>sfc</mi>
+                        <mo>=</mo>
+                        <mfrac>
+                            <msub><mover><mi>m</mi><mo>˙</mo></mover><mi>f</mi></msub>
+                            <mi>bp</mi>
+                        </mfrac>
+                        <mspace width="0.5em"/>
+                        <mtext>(kg/kWh)</mtext>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Fuel flow per brake power." Think of it as the engine's appetite.</div>
+            </div>
+        </div>
+
+        <!-- 11. Mean Effective Pressure -->
+        <div class="card">
+            <div class="card-header">📊 11. Mean Effective Pressure (mep) <span class="badge">Pressure</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Average pressure that would produce the same work if acting on the piston throughout the stroke.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <msub><mi>p</mi><mi>m</mi></msub>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mtext>Work per cycle</mtext>
+                            <msub><mi>V</mi><mi>s</mi></msub>
+                        </mfrac>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mrow>
+                                <mi>W</mi>
+                            </mrow>
+                            <msub><mi>V</mi><mi>s</mi></msub>
+                        </mfrac>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Work divided by swept volume." It's like average pressure pushing the piston.</div>
+            </div>
+        </div>
+
+        <!-- 12. Mean Piston Speed -->
+        <div class="card">
+            <div class="card-header">🏃 12. Mean Piston Speed <span class="badge">Kinematics</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Average speed of the piston over one revolution. Important for wear and limiting engine speed.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <msub><mi>s</mi><mi>p</mi></msub>
+                        <mo>=</mo>
+                        <mn>2</mn>
+                        <mi>L</mi>
+                        <mi>N</mi>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Two times stroke times rpm." Piston goes up and down once per rev.</div>
+            </div>
+        </div>
+
+        <!-- 13. Equivalence Ratio -->
+        <div class="card">
+            <div class="card-header">⚖️ 13. Equivalence Ratio (φ) <span class="badge">Combustion</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Ratio of actual fuel‑air ratio to stoichiometric fuel‑air ratio. φ = 1 is ideal.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <mi>φ</mi>
+                        <mo>=</mo>
+                        <mfrac>
+                            <msub><mrow><mo>(</mo><mi>F</mi><mo>/</mo><mi>A</mi><mo>)</mo></mrow><mtext>actual</mtext></msub>
+                            <msub><mrow><mo>(</mo><mi>F</mi><mo>/</mo><mi>A</mi><mo>)</mo></mrow><mtext>stoich</mtext></msub>
+                        </mfrac>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Actual over stoichiometric." φ &lt; 1 lean, φ &gt; 1 rich.</div>
+            </div>
+        </div>
+
+        <!-- 14. Inlet Valve Mach Index -->
+        <div class="card">
+            <div class="card-header">💨 14. Inlet Valve Mach Index (Z) <span class="badge">Gas Flow</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Ratio of gas velocity to sonic velocity at the inlet valve. Limits volumetric efficiency when Z &gt; 0.6.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <mi>Z</mi>
+                        <mo>=</mo>
+                        <mfrac>
+                            <msub><mi>A</mi><mi>p</mi></msub>
+                            <msub><mi>A</mi><mi>i</mi></msub>
+                        </mfrac>
+                        <mo>⋅</mo>
+                        <mfrac>
+                            <msub><mi>V</mi><mi>p</mi></msub>
+                            <mrow>
+                                <msub><mi>C</mi><mi>i</mi></msub>
+                                <mi>α</mi>
+                            </mrow>
+                        </mfrac>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Piston area over inlet area × piston speed over sonic speed." Keep Z below 0.6 for good breathing.</div>
+            </div>
+        </div>
+
+        <!-- 15. Wave Power -->
+        <div class="card">
+            <div class="card-header">🌊 15. Wave Power <span class="badge">Renewable</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Power per metre of wave crest. Proportional to wave height squared and period.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <mi>P</mi>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mrow>
+                                <mi>ρ</mi>
+                                <msup><mi>g</mi><mn>2</mn></msup>
+                            </mrow>
+                            <mrow>
+                                <mn>64</mn>
+                                <mi>π</mi>
+                            </mrow>
+                        </mfrac>
+                        <msup><mi>H</mi><mn>2</mn></msup>
+                        <mi>T</mi>
+                        <mo>≈</mo>
+                        <mn>0.5</mn>
+                        <msup><mi>H</mi><mn>2</mn></msup>
+                        <mi>T</mi>
+                        <mspace width="0.5em"/>
+                        <mtext>(kW/m)</mtext>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> "Half H‑squared T." The constant 0.5 kW/(m³·s) is magic for water waves.</div>
+            </div>
+        </div>
+
+        <!-- 16. Air‑Standard Efficiency -->
+        <div class="card">
+            <div class="card-header">📐 16. Air‑Standard Efficiency <span class="badge">Ideal Cycle</span></div>
+            <div class="card-body">
+                <p class="theory"><strong>Theory:</strong> Efficiency of an ideal cycle using air as the working fluid. Used as a benchmark.</p>
+                <div class="math-box">
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <msub><mi>η</mi><mtext>air‑std</mtext></msub>
+                        <mo>=</mo>
+                        <mn>1</mn>
+                        <mo>−</mo>
+                        <mfrac>
+                            <mn>1</mn>
+                            <msup><mi>r</mi><mrow><mi>γ</mi><mo>−</mo><mn>1</mn></mrow></msup>
+                        </mfrac>
+                        <mspace width="1em"/>
+                        <mtext>(Otto)</mtext>
+                    </math>
+                </div>
+                <div class="trick"><strong>Trick:</strong> Same as Otto formula. Only depends on compression ratio and γ.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+        ⚡ NAOE 3103 · Marine Engines &amp; Fuels · Bangladesh Maritime University · Formula sheet for revision.
+    </div>
+</div>
+</body>
+</html>
