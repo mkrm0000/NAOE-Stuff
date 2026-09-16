@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Marine Engines · Comprehensive Study Guide</title>
+  <style>
+    /* ---------- RESET & GLOBAL ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #eef2f7;
+      color: #1a2634;
+      line-height: 1.55;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .guide-container {
+      max-width: 1200px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      padding: 2rem 2rem 2.5rem;
+      overflow-wrap: break-word;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 0.75rem; }
+      .guide-container { padding: 1.25rem 1rem; border-radius: 18px; }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 0.5rem; }
+      .guide-container { padding: 1rem 0.75rem; }
+    }
+
+    /* ---------- TYPOGRAPHY ---------- */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0a2a44;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #3c5a7d;
+      margin-bottom: 1.75rem;
+      font-weight: 400;
+      border-left: 4px solid #2e7eb0;
+      background: #f5faff;
+      border-radius: 0 8px 8px 0;
+      padding: 0.6rem 1rem;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem; }
+      .subtitle { font-size: 0.95rem; padding: 0.5rem 0.75rem; }
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .button-bar {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: #1f6e9e;
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      box-shadow: 0 4px 8px rgba(0, 60, 100, 0.12);
+      min-height: 48px;
+      min-width: 120px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.3px;
+      flex: 0 0 auto;
+    }
+
+    .btn:hover {
+      background: #145a80;
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn.secondary {
+      background: #e4ebf3;
+      color: #1a3a55;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn.secondary:hover {
+      background: #d0dce8;
+    }
+
+    @media (max-width: 480px) {
+      .btn { font-size: 0.9rem; padding: 0.6rem 1.2rem; min-width: 100px; }
+      .button-bar { gap: 0.65rem; }
+    }
+
+    /* ---------- ACCORDION ---------- */
+    details {
+      margin-bottom: 1rem;
+      border-radius: 14px;
+      background: #f9fcff;
+      border: 1px solid #d9e5f0;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+
+    details[open] {
+      box-shadow: 0 6px 14px rgba(0, 40, 70, 0.08);
+      border-color: #b6d2e9;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 1.2rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #0a2a44;
+      background: #e7f0fa;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: background 0.15s, color 0.15s;
+      min-height: 56px;
+      user-select: none;
+      position: relative;
+      border-bottom: 1px solid transparent;
+    }
+
+    summary:hover {
+      background: #d4e5f5;
+      color: #002b4a;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::before {
+      content: "▼";
+      font-size: 1rem;
+      color: #1f6e9e;
+      transition: transform 0.25s ease;
+      display: inline-block;
+      margin-right: 0.25rem;
+      flex-shrink: 0;
+    }
+
+    details[open] > summary::before {
+      transform: rotate(180deg);
+    }
+
+    details details > summary {
+      font-size: 1.1rem;
+      padding: 1rem 1.2rem 1rem 2.8rem;
+      background: #f0f7fe;
+      border-bottom: 1px solid #d9e5f0;
+      font-weight: 600;
+      min-height: 52px;
+    }
+
+    details details > summary::before {
+      font-size: 0.85rem;
+      margin-right: 0.6rem;
+    }
+
+    details details > summary:hover {
+      background: #e1eefb;
+    }
+
+    .accordion-content {
+      padding: 1.2rem 1.5rem 1.8rem;
+      background: #ffffff;
+    }
+
+    details details .accordion-content {
+      padding: 1.2rem 1.2rem 1.5rem 2rem;
+    }
+
+    @media (max-width: 768px) {
+      summary { font-size: 1.1rem; padding: 1rem 1.1rem; min-height: 52px; }
+      details details > summary { font-size: 1rem; padding: 0.9rem 1rem 0.9rem 2.2rem; }
+      .accordion-content { padding: 1rem 1rem 1.4rem; }
+      details details .accordion-content { padding: 1rem 0.9rem 1.2rem 1.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      summary { font-size: 1rem; padding: 0.9rem 0.9rem; }
+      details details > summary { font-size: 0.95rem; padding: 0.8rem 0.8rem 0.8rem 2rem; }
+      .accordion-content { padding: 0.8rem 0.8rem 1.2rem; }
+      details details .accordion-content { padding: 0.8rem 0.7rem 1rem 0.9rem; }
+    }
+
+    /* ---------- BOXES ---------- */
+    .box {
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      border-left: 5px solid transparent;
+    }
+
+    .definition-box {
+      background: #fde8ed;
+      border-left-color: #c43a5c;
+      color: #4a0e1d;
+    }
+
+    .definition-box strong {
+      color: #a11e3f;
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .theory-short-box {
+      background: #e1f5e8;
+      border-left-color: #1c8b4c;
+      color: #10381f;
+    }
+
+    .theory-short-box strong {
+      color: #0f6a38;
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .theory-simple-box {
+      background: #fff2d6;
+      border-left-color: #d98e1f;
+      color: #4a340a;
+    }
+
+    .theory-simple-box strong {
+      color: #a86814;
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 480px) {
+      .box { padding: 0.8rem 1rem; font-size: 0.93rem; }
+    }
+
+    /* ---------- LISTS ---------- */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0 1rem;
+    }
+
+    li { margin-bottom: 0.35rem; }
+    p { margin: 0.5rem 0 0.8rem; }
+
+    /* ---------- FORMULA / MATH CONTAINER ---------- */
+    .formula-container {
+      background: #f1f6fb;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin: 0.8rem 0 1rem;
+      overflow-x: auto;
+      border: 1px solid #cbdae8;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+      text-align: center;
+    }
+
+    .formula-container::-webkit-scrollbar { height: 6px; }
+    .formula-container::-webkit-scrollbar-thumb {
+      background: #a0b8ce;
+      border-radius: 10px;
+    }
+
+    .formula-container math {
+      font-size: 1.15rem;
+    }
+
+    @media (max-width: 480px) {
+      .formula-container { padding: 0.7rem 0.8rem; }
+      .formula-container math { font-size: 0.98rem; }
+    }
+
+    /* ---------- TABLE CONTAINER ---------- */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.2rem 0;
+      border-radius: 12px;
+      border: 1px solid #d0dfec;
+      -webkit-overflow-scrolling: touch;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      min-width: 580px;
+    }
+
+    th {
+      background: #d9e7f5;
+      color: #0f2b42;
+      font-weight: 700;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 2px solid #b0c9de;
+    }
+
+    td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid #d9e5f0;
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background: #f8fbfe; }
+
+    @media (max-width: 480px) {
+      table { font-size: 0.82rem; min-width: 460px; }
+      th, td { padding: 0.55rem 0.7rem; }
+    }
+
+    .small-note {
+      font-size: 0.9rem;
+      color: #4a5e72;
+      font-style: italic;
+    }
+
+    details details { margin-bottom: 0.5rem; }
+    details details:last-child { margin-bottom: 0; }
+
+    img, svg, table, pre, code, math { max-width: 100%; }
+  </style>
+</head>
+<body>
+<div class="guide-container">
+  <h1>⚓ Marine Engines — Comprehensive Study Guide</h1>
+  <div class="subtitle">Module‑by‑module notes, fully solved semester final (Feb 2026) &amp; previous years' question bank (2024–2025)</div>
+
+  <div class="button-bar">
+    <button class="btn" id="expandAllBtn">Expand All</button>
+    <button class="btn secondary" id="collapseAllBtn">Collapse All</button>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- MAIN ACCORDION 1: MODULE NOTES                 -->
+  <!-- ============================================= -->
+  <details open>
+    <summary>📘 Module‑by‑Module Comprehensive Notes</summary>
+    <div class="accordion-content">
+
+      <!-- ===== MODULE 1 ===== -->
+      <details>
+        <summary>Module 1: Heat Engine Fundamentals &amp; Classification</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>Definition</strong>
+            A heat engine is a device that converts thermal energy (from fuel combustion) into mechanical work. They are broadly classified into <strong>Internal Combustion (IC)</strong> engines and <strong>External Combustion (EC)</strong> engines based on where the combustion takes place.
+          </div>
+
+          <div class="theory-short-box">
+            <strong>Theory [Short]</strong>
+            <ul>
+              <li><strong>IC Engine:</strong> Combustion occurs inside the engine cylinder/combustion chamber. The working fluid is the high‑pressure combustion gases themselves.</li>
+              <li><strong>EC Engine:</strong> Combustion occurs outside the engine in a furnace/boiler. A separate working fluid (steam, air) is heated externally and then used to produce work.</li>
+            </ul>
+          </div>
+
+          <div class="theory-simple-box">
+            <strong>Theory [Explained Simply] — IC vs. EC (The "Why")</strong>
+            <p><strong>Internal Combustion (IC) Engine:</strong> Like a firecracker exploding inside a heavy metal cylinder. The explosion happens right where the work is produced, directly pushing the piston.</p>
+            <p><strong>External Combustion (EC) Engine:</strong> Like a fireplace boiling a big water kettle outside. The fire burns in a separate furnace, turning water to high‑pressure steam, which is piped over to push a piston or spin a turbine.</p>
+            <p><strong>Memory Trick: IC vs. EC</strong> — Mnemonic: <em>IN vs. OUT</em>. Visual Story: IC = Inside Cylinder (a compact diesel engine). EC = External Campfire (a massive steam locomotive with a coal firebox under a water boiler).</p>
+          </div>
+
+          <h4>1.1.1 Detailed Comparison Matrix: IC vs. EC Engines</h4>
+          <div class="table-container">
+            <table>
+              <caption style="caption-side:bottom; font-size:0.85rem; padding-top:0.5rem; color:#4f6b85;">Table 1: Detailed distinction between IC and EC Engines from course materials.</caption>
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Internal Combustion (IC) Engine</th>
+                  <th>External Combustion (EC) Engine</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Combustion Location</td><td>Inside the engine cylinder/combustion chamber [12, 13]</td><td>Outside the engine in a furnace/boiler [12, 13]</td></tr>
+                <tr><td>Working Fluid</td><td>High‑pressure combustion gases themselves [13]</td><td>Separate fluid (steam, air) heated externally [13]</td></tr>
+                <tr><td>Examples</td><td>Petrol engine, Diesel engine, Gas turbine [13]</td><td>Steam engine, Steam turbine, Stirling engine [13]</td></tr>
+                <tr><td>Size and Weight</td><td>Compact and lightweight [13]</td><td>Large and heavy due to boiler/condenser [13]</td></tr>
+                <tr><td>Overall Efficiency</td><td>Higher efficiency (less heat loss) [13]</td><td>Lower efficiency due to external heat losses [13]</td></tr>
+                <tr><td>Starting Time</td><td>Starts quickly [14]</td><td>Slow starting (requires steam generation) [14]</td></tr>
+                <tr><td>Fuel Flexibility</td><td>Restricted to refined liquid/gas fuels [14]</td><td>High flexibility (coal, wood, oil, biomass) [14]</td></tr>
+                <tr><td>Power‑to‑Weight</td><td>High [14]</td><td>Low [14]</td></tr>
+                <tr><td>Maintenance</td><td>Frequent (high temp/pressure in cylinder) [14]</td><td>Less frequent for main engine drive parts [14]</td></tr>
+                <tr><td>Thermal Stresses</td><td>High thermal stresses on cylinder head/piston [15]</td><td>Lower thermal stresses on engine components [15]</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- ===== MODULE 2 ===== -->
+      <details>
+        <summary>Module 2: 2‑Stroke vs. 4‑Stroke Cycles &amp; Marine Engine Classification</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>Definition</strong>
+            <strong>4‑Stroke Cycle:</strong> The piston completes four strokes (intake, compression, power, exhaust) and the crankshaft makes two full revolutions for every one power stroke. <strong>2‑Stroke Cycle:</strong> The piston completes two strokes (one up, one down) and the crankshaft makes one full revolution for every one power stroke — intake and exhaust are combined.
+          </div>
+
+          <div class="theory-short-box">
+            <strong>Theory [Short]</strong>
+            <ul>
+              <li><strong>4‑Stroke Cycle:</strong> Phrase — "Suck, Squeeze, Bang, Blow" (Intake, Compression, Power, Exhaust). Takes 4 piston movements to get 1 power push.</li>
+              <li><strong>2‑Stroke Cycle:</strong> Rhyme — "One revolution around, a power bang is found!" (<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>=</mo><mi>N</mi></math> power strokes per minute). Every single landing and push gives a power bounce.</li>
+            </ul>
+          </div>
+
+          <div class="theory-simple-box">
+            <strong>Theory [Explained Simply]</strong>
+            <p><strong>4‑Stroke Cycle:</strong> Like riding a bicycle where you pedal, coast, pedal, coast. It takes 4 up‑and‑down piston movements (2 full pedal revolutions) to get 1 power push.</p>
+            <p><strong>2‑Stroke Cycle:</strong> Like bouncing on a pogo stick where every single landing and push gives you a power bounce (1 full revolution per power push).</p>
+          </div>
+
+          <h4>1.2.1 Classification of Marine Engines by Speed &amp; Hull Pairing</h4>
+
+          <p><strong>Low‑Speed Marine Engines (95–500 RPM):</strong></p>
+          <ul>
+            <li>Direct‑coupled or geared reduction drive to propeller [58].</li>
+            <li>Applied in large displacement vessels (Tankers, Bulk Carriers, Container Ships) [58].</li>
+          </ul>
+
+          <p><strong>Medium‑Speed Marine Engines (500–1000 RPM):</strong></p>
+          <ul>
+            <li>Geared reduction gear or diesel‑electric drive systems [59].</li>
+            <li>Applied in semi‑displacement vessels (Ferries, Ro‑Ro vessels, Tugs, Cruise ships) [59].</li>
+          </ul>
+
+          <p><strong>High‑Speed Marine Engines (&gt;1000 RPM):</strong></p>
+          <ul>
+            <li>Geared reduction gear drive [59].</li>
+            <li>Applied in planing‑type vessels (Speedboats, Patrol Boats, Fast Craft) [59].</li>
+          </ul>
+
+        </div>
+      </details>
+
+      <!-- ===== MODULE 3 ===== -->
+      <details>
+        <summary>Module 3: Air‑Standard Thermodynamic Cycles</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>Definition</strong>
+            Air‑standard cycles are idealized thermodynamic cycles that use air as the working fluid, assuming constant specific heats and reversible processes. They are used to model real engine cycles such as the Otto, Diesel, and Brayton cycles.
+          </div>
+
+          <div class="theory-short-box">
+            <strong>Theory [Short] — Key Assumptions of Ideal Air‑Standard Cycles</strong>
+            <ol>
+              <li>The working medium is a perfect gas governed by <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi><mi>V</mi><mo>=</mo><mi>m</mi><mi>R</mi><mi>T</mi></math> [18].</li>
+              <li>The mass of the working medium remains strictly constant throughout the cycle [18].</li>
+              <li>All processes constituting the cycle are internally and externally reversible [18].</li>
+              <li>Heat is supplied from an external constant high‑temperature source (not chemical combustion) [18].</li>
+              <li>Heat is rejected to an external constant low‑temperature sink [18].</li>
+              <li>No heat losses occur between the system and its surroundings [18].</li>
+              <li>The working medium has constant specific heats <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><msub><mi>C</mi><mi>p</mi></msub><mo>,</mo><msub><mi>C</mi><mi>v</mi></msub><mo>,</mo><mi>γ</mi><mo>)</mo></math> throughout [18].</li>
+            </ol>
+          </div>
+
+          <div class="theory-simple-box">
+            <strong>Theory [Explained Simply]</strong>
+            <p>Think of an air‑standard cycle as a "perfect world" version of an engine — no friction, no heat leaks, and air behaves like an ideal gas. It's like a video game with no lag or glitches, so we can calculate the best possible efficiency of an engine.</p>
+          </div>
+
+          <h4>1.3.2 Thermodynamic Processes Summary</h4>
+          <ul>
+            <li><strong>Isothermal</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><mi>T</mi><mo>=</mo><mtext>const</mtext><mo>)</mo></math>: Internal energy <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Δ</mi><mi>U</mi><mo>=</mo><mn>0</mn></math>; heat added equals work done <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><mi>Q</mi><mo>=</mo><mi>W</mi><mo>)</mo></math> [19].</li>
+            <li><strong>Adiabatic</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><mi>Q</mi><mo>=</mo><mn>0</mn><mo>)</mo></math>: Governed by <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi><msup><mi>V</mi><mi>γ</mi></msup><mo>=</mo><mtext>const</mtext></math>; work done causes internal energy change [19].</li>
+            <li><strong>Isentropic</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><mi>S</mi><mo>=</mo><mtext>const</mtext><mo>)</mo></math>: Reversible adiabatic process with constant entropy [19].</li>
+            <li><strong>Constant Volume / Isochoric</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><mi>V</mi><mo>=</mo><mtext>const</mtext><mo>)</mo></math>: Boundary work <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi><mo>=</mo><mn>0</mn></math>; heat added increases internal energy <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Δ</mi><mi>U</mi><mo>=</mo><mi>Q</mi><mo>=</mo><mi>m</mi><msub><mi>C</mi><mi>v</mi></msub><mi>Δ</mi><mi>T</mi></math> [19, 20].</li>
+            <li><strong>Constant Pressure / Isobaric</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mo>(</mo><mi>P</mi><mo>=</mo><mtext>const</mtext><mo>)</mo></math>: Heat added <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Q</mi><mo>=</mo><mi>m</mi><msub><mi>C</mi><mi>p</mi></msub><mi>Δ</mi><mi>T</mi></math>; work done <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi><mo>=</mo><mi>P</mi><mo>(</mo><msub><mi>V</mi><mn>2</mn></msub><mo>−</mo><msub><mi>V</mi><mn>1</mn></msub><mo>)</mo></math>.</li>
+          </ul>
+
+          <h4>1.3.3 Efficiency Formulae &amp; Derivations</h4>
+
+          <p><strong>Otto Cycle Thermal Efficiency:</strong></p>
+          <div class="formula-container">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <msub><mi>η</mi><mtext>Otto</mtext></msub>
+              <mo>=</mo>
+              <mn>1</mn>
+              <mo>−</mo>
+              <mfrac>
+                <mn>1</mn>
+                <msup><mi>r</mi><mrow><mi>γ</mi><mo>−</mo><mn>1</mn></mrow></msup>
+              </mfrac>
+            </math>
+          </div>
+          <p class="small-note">where <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi><mo>=</mo><mfrac><msub><mi>V</mi><mn>1</mn></msub><msub><mi>V</mi><mn>2</mn></msub></mfrac></math> is the compression ratio [3, 4].</p>
+
+          <p><strong>Diesel Cycle Thermal Efficiency:</strong></p>
+          <div class="formula-container">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <msub><mi>η</mi><mtext>Diesel</mtext></msub>
+              <mo>=</mo>
+              <mn>1</mn>
+              <mo>−</mo>
+              <mfrac>
+                <mn>1</mn>
+                <msup><mi>r</mi><mrow><mi>γ</mi><mo>−</mo><mn>1</mn></mrow></msup>
+              </mfrac>
+              <mrow><mo>[</mo></mrow>
+              <mfrac>
+                <mrow><msubsup><mi>r</mi><mi>c</mi><mi>γ</mi></msubsup><mo>−</mo><mn>1</mn></mrow>
+                <mrow><mi>γ</mi><mo>(</mo><msub><mi>r</mi><mi>c</mi></msub><mo>−</mo><mn>1</mn><mo>)</mo></mrow>
+              </mfrac>
+              <mrow><mo>]</mo></mrow>
+            </math>
+          </div>
+          <p class="small-note">where <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>r</mi><mi>c</mi></msub><mo>=</mo><mfrac><msub><mi>V</mi><mn>3</mn></msub><msub><mi>V</mi><mn>2</mn></msub></mfrac></math> is the cut‑off ratio [4].</p>
+
+        </div>
+      </details>
+
+      <!-- ===== MODULE 4 ===== -->
+      <details>
+        <summary>Module 4: Actual Cycles, Engine Losses &amp; Performance Evaluation</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>Definition</strong>
+            Actual engine cycles deviate from ideal air‑standard cycles due to several real‑world factors such as time losses, heat losses, exhaust blowdown, pumping losses, rubbing friction, and specific heat variation. These losses reduce the actual efficiency and power output compared to ideal predictions.
+          </div>
+
+          <div class="theory-short-box">
+            <strong>Theory [Short] — Reasons Why Actual Engine Cycles Differ from Ideal Cycles</strong>
+            <ol>
+              <li><strong>Time Loss Factor:</strong> Combustion requires a definite time for air‑fuel mixing and chemical reaction rather than occurring instantaneously [22].</li>
+              <li><strong>Heat Loss Factor:</strong> Heat is lost to cylinder walls, head, and piston cooling oil [24].</li>
+              <li><strong>Exhaust Blowdown Loss:</strong> Exhaust valve opens 40°–70° before BDC, sacrificing expansion work to reduce backpressure [22, 25].</li>
+              <li><strong>Pumping Losses:</strong> Piston work spent drawing fresh charge past throttling restrictions and pushing out exhaust gases against backpressure [25, 26].</li>
+              <li><strong>Rubbing Friction Losses:</strong> Mechanical friction between piston rings/skirt, bearings, and valvetrain [27].</li>
+              <li><strong>Specific Heat Variation &amp; Dissociation:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>C</mi><mi>p</mi></msub></math> and <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>C</mi><mi>v</mi></msub></math> increase with temperature, reducing peak pressure [20].</li>
+            </ol>
+          </div>
+
+          <div class="theory-simple-box">
+            <strong>Theory [Explained Simply]</strong>
+            <p>Imagine a perfect basketball bounce (ideal cycle) versus a real ball that loses energy to friction, heat, and squeaky shoes. Engines lose energy in similar small ways — the exhaust valve opens early, heat escapes through metal, and parts rub together. These small losses add up and reduce the actual work you get out.</p>
+          </div>
+
+          <h4>1.4.2 Engine Performance Equations</h4>
+
+          <p><strong>Indicated Power (<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi><mi>p</mi></math>):</strong></p>
+          <div class="formula-container">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <mi>i</mi><mi>p</mi>
+              <mo>=</mo>
+              <mfrac>
+                <mrow>
+                  <msub><mi>p</mi><mrow><mi>i</mi><mi>m</mi></mrow></msub>
+                  <mo>⋅</mo>
+                  <mi>L</mi>
+                  <mo>⋅</mo>
+                  <mi>A</mi>
+                  <mo>⋅</mo>
+                  <mi>n</mi>
+                  <mo>⋅</mo>
+                  <mi>K</mi>
+                </mrow>
+                <mn>60,000</mn>
+              </mfrac>
+              <mspace width="0.5em"/>
+              <mo>[</mo><mi>kW</mi><mo>]</mo>
+            </math>
+          </div>
+          <p class="small-note">where <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>=</mo><mi>N</mi><mo>/</mo><mn>2</mn></math> for 4‑stroke, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>=</mo><mi>N</mi></math> for 2‑stroke [17].</p>
+
+          <p><strong>Brake Power (<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi><mi>p</mi></math>):</strong></p>
+          <div class="formula-container">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <mi>b</mi><mi>p</mi>
+              <mo>=</mo>
+              <mfrac>
+                <mrow>
+                  <mn>2</mn>
+                  <mi>π</mi>
+                  <mi>N</mi>
+                  <mi>T</mi>
+                </mrow>
+                <mn>60,000</mn>
+              </mfrac>
+              <mspace width="0.5em"/>
+              <mo>[</mo><mi>kW</mi><mo>]</mo>
+            </math>
+          </div>
+
+          <p><strong>Mechanical Efficiency (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>η</mi><mi>m</mi></msub></math>):</strong></p>
+          <div class="formula-container">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <msub><mi>η</mi><mi>m</mi></msub>
+              <mo>=</mo>
+              <mfrac><mrow><mi>b</mi><mi>p</mi></mrow><mrow><mi>i</mi><mi>p</mi></mrow></mfrac>
+              <mo>=</mo>
+              <mfrac><mrow><mi>b</mi><mi>m</mi><mi>e</mi><mi>p</mi></mrow><mrow><mi>i</mi><mi>m</mi><mi>e</mi><mi>p</mi></mrow></mfrac>
+            </math>
+          </div>
+
+          <p><strong>Volumetric Efficiency (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>η</mi><mi>v</mi></msub></math>):</strong></p>
+          <div class="formula-container">
+            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+              <msub><mi>η</mi><mi>v</mi></msub>
+              <mo>=</mo>
+              <mfrac>
+                <mrow><mtext>Actual mass / volume of air induced</mtext></mrow>
+                <mrow><mtext>Theoretical swept volume rate</mtext></mrow>
+              </mfrac>
+            </math>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- ===== MODULE 5 ===== -->
+      <details>
+        <summary>Module 5: Marine Fuels, Petroleum Refining &amp; Fuel Ratings</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>Definition</strong>
+            Marine fuels are derived from crude oil through processes like fractional distillation, cracking, reforming, and alkylation. Fuel quality is rated using the <strong>Octane Number</strong> for SI engines and the <strong>Cetane Number</strong> for CI engines.
+          </div>
+
+          <div class="theory-short-box">
+            <strong>Theory [Short] — Petroleum Refining Processes</strong>
+            <ul>
+              <li><strong>Fractional Distillation:</strong> Separates crude oil into fractions based on boiling point ranges (Fuel gases &lt; 38°C; Gasoline 38–200°C; Diesel/Kerosene 200–350°C; Residuals &gt; 350°C) [28].</li>
+              <li><strong>Thermal &amp; Catalytic Cracking:</strong> Breaks heavy, long‑chain hydrocarbon molecules into lighter gasoline/diesel compounds [28].</li>
+              <li><strong>Reformation &amp; Alkylation:</strong> Rearranges hydrocarbon structures to increase octane rating [29].</li>
+              <li><strong>Isomerization:</strong> Alters structural arrangement without changing chemical formula [29].</li>
+            </ul>
+          </div>
+
+          <div class="theory-simple-box">
+            <strong>Theory [Explained Simply]</strong>
+            <p>Refining crude oil is like sorting a mixed bag of LEGO bricks by size (distillation) and then breaking big bricks into smaller ones (cracking) or snapping them together differently (reforming). Octane and cetane numbers are like "smoothness ratings" — high octane resists knock in petrol engines; high cetane ignites easily in diesel engines.</p>
+          </div>
+
+          <h4>1.5.2 Fuel Rating Scales</h4>
+          <ul>
+            <li><strong>Octane Number (SI Engines):</strong> Measures resistance to auto‑ignition/knocking. Benchmark fuels: Iso‑octane = 100 (high resistance), n‑heptane = 0 (knocks easily) [29, 30].</li>
+            <li><strong>Cetane Number (CI Engines):</strong> Measures ignition quality and short ignition delay. Benchmark fuels: Cetane (n‑hexadecane) = 100 (short delay), 1‑methylnaphthalene = 0 (long delay) [30].</li>
+          </ul>
+
+        </div>
+      </details>
+
+      <!-- ===== MODULE 6 ===== -->
+      <details>
+        <summary>Module 6: Combustion &amp; Knocking in SI vs. CI Engines</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>Definition</strong>
+            <strong>SI knock</strong> occurs at the end of combustion due to auto‑ignition of the unburnt end‑gas, causing a metallic pinging sound. <strong>CI knock</strong> occurs at the start of combustion due to a long ignition delay, leading to a sudden pressure rise when accumulated fuel ignites.
+          </div>
+
+          <div class="theory-short-box">
+            <strong>Theory [Short] — Four Stages of Combustion in CI Engines</strong>
+            <ol>
+              <li><strong>Ignition Delay Period:</strong> Physical delay (atomization/vaporization) and chemical delay (pre‑flame reactions) before ignition [39].</li>
+              <li><strong>Period of Uncontrolled (Rapid) Combustion:</strong> Accumulated fuel ignites rapidly, causing a steep pressure rise [40].</li>
+              <li><strong>Period of Controlled Combustion:</strong> Fuel injected burns directly at high pressure/temperature, controlled by injection pump rate [40].</li>
+              <li><strong>Period of After‑Burning:</strong> Unburnt fuel particles continue burning up to 70°–80° after TDC [41].</li>
+            </ol>
+          </div>
+
+          <div class="theory-simple-box">
+            <strong>Theory [Explained Simply]</strong>
+            <p>In a petrol engine, knock is like a loud "ping" at the end of the party when leftover fuel explodes unexpectedly. In a diesel engine, knock is like a rough start — too much fuel accumulates and then fires all at once, causing a harsh bang. Both are bad for the engine and reduce efficiency.</p>
+          </div>
+
+          <h4>1.6.2 Detailed Comparison: SI Knock vs. CI Knock</h4>
+          <div class="table-container">
+            <table>
+              <caption style="caption-side:bottom; font-size:0.85rem; padding-top:0.5rem; color:#4f6b85;">Table 2: Comparison of Knocking Characteristics in SI and CI Engines [43, 44].</caption>
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>SI Engine Knock</th>
+                  <th>CI Engine Knock</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Timing</td><td>Occurs at the END of combustion [43]</td><td>Occurs at the START of combustion [43]</td></tr>
+                <tr><td>Cause</td><td>Auto‑ignition of unburnt end‑gas [43]</td><td>Long ignition delay → accumulated fuel explosions [42]</td></tr>
+                <tr><td>Mixture</td><td>Homogeneous air‑fuel mixture [43]</td><td>Heterogeneous (fuel droplets in air) [43]</td></tr>
+                <tr><td>Pre‑ignition</td><td>Pre‑ignition can occur ahead of spark [43]</td><td>No pre‑ignition possible (pure air compressed) [43]</td></tr>
+                <tr><td>Fuel Rating Needed</td><td>High Octane rating (80–100) [44]</td><td>High Cetane rating (45–65) [44]</td></tr>
+                <tr><td>Engine Variables</td><td>High compression ratio promotes knock [44]</td><td>High compression ratio prevents knock [44]</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- ===== MODULE 7 ===== -->
+      <details>
+        <summary>Module 7: Supercharging, Turbocharging &amp; Scavenging</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>Definition</strong>
+            <strong>Supercharging</strong> is a method of increasing the intake air density by using a mechanically driven compressor (driven from the engine crankshaft). <strong>Turbocharging</strong> uses an exhaust‑gas‑driven turbine to spin a compressor, recovering waste heat/kinetic energy from exhaust gases without any mechanical connection to the engine crankshaft.
+          </div>
+
+          <div class="theory-short-box">
+            <strong>Theory [Short]</strong>
+            <ul>
+              <li><strong>Supercharging:</strong> Boosts intake air density via a mechanical drive from the engine crankshaft (consumes up to 20% engine power) [47, 49]. Types: Centrifugal, Root's, Vane [50, 51].</li>
+              <li><strong>Turbocharger:</strong> Driven by an exhaust gas turbine utilizing waste heat/kinetic energy from exhaust gases; no mechanical connection to engine crankshaft [53].</li>
+            </ul>
+          </div>
+
+          <div class="theory-simple-box">
+            <strong>Theory [Explained Simply]</strong>
+            <p>Supercharging is like using a fan powered by the engine itself to blow more air into the cylinder. Turbocharging is like using the engine's own exhaust "wind" to spin a fan — free energy from waste gas!</p>
+          </div>
+
+          <h4>1.7.2 Scavenging Methods in 2‑Stroke Marine Engines</h4>
+          <ul>
+            <li><strong>Cross‑Flow Scavenging:</strong> Inlet and exhaust ports on opposite sides. Simple and valveless, but leaves unswept corners [54, 55].</li>
+            <li><strong>Loop Scavenging:</strong> Inlet and exhaust ports on the same side. Compact, but weakens cylinder liner [56, 57].</li>
+            <li><strong>Uniflow Scavenging:</strong> Air enters bottom ports and flows straight up to top exhaust valve. Highest scavenging efficiency and power, but higher cost [57, 58].</li>
+          </ul>
+
+          <div class="theory-simple-box">
+            <strong>Theory [Explained Simply] — Scavenging</strong>
+            <p>Scavenging is simply cleaning out burnt gases. Cross‑flow is like opening two windows on opposite walls; uniflow is like a gentle breeze from bottom to top — most effective.</p>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- ===== MODULE 8 ===== -->
+      <details>
+        <summary>Module 8: Renewable Ocean Energy, Gas Turbines &amp; Nuclear Power</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>Definition</strong>
+            Marine renewable energy includes wind‑assisted propulsion systems (WAPS), wave energy converters (WEC), and salinity gradient (blue energy). Gas turbines operate on the Brayton cycle, and nuclear power plants use fission heat to produce steam that drives turbines.
+          </div>
+
+          <div class="theory-short-box">
+            <strong>Theory [Short] — Renewable Ocean Energy Technologies</strong>
+            <ul>
+              <li><strong>Wind‑Assisted Propulsion Systems (WAPS):</strong> Flettner Rotors (Magnus effect), Rigid Wing Sails, Soft Sails, Kites [74–76].</li>
+              <li><strong>Wave Energy Converters (WEC):</strong> Point Absorbers, Attenuators, Oscillating Water Column (OWC), Overtopping Devices [79, 80]. Governing Equation: <math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>Power/length</mtext><mo>≈</mo><mn>0.5</mn><mo>⋅</mo><msup><mi>H</mi><mn>2</mn></msup><mo>⋅</mo><mi>T</mi></math> [kW/m] [77].</li>
+              <li><strong>Salinity Gradient (Blue Energy):</strong> Pressure Retarded Osmosis (PRO) and Reverse Electrodialysis (RED) exploiting osmotic pressure across membranes [83, 84].</li>
+            </ul>
+          </div>
+
+          <div class="theory-simple-box">
+            <strong>Theory [Explained Simply]</strong>
+            <p>Wave energy is like capturing the ocean's heartbeat. Gas turbines are jet engines that spin a shaft instead of flying. Nuclear power is a controlled, slow "atomic campfire" that boils water into steam to spin a turbine.</p>
+          </div>
+
+          <h4>1.8.2 Gas Turbines &amp; Nuclear Power Plants</h4>
+          <ul>
+            <li><strong>Gas Turbine (Brayton Cycle):</strong> Isentropic Compression → Constant Pressure Heat Addition → Isentropic Expansion → Heat Rejection [88, 89].</li>
+            <li><strong>Nuclear Power Plant:</strong> Fission of U‑235/Pu‑239 releases heat → Coolant transfers heat to secondary loop → High‑pressure steam drives turbine → Generator produces electricity [93, 94]. Key parts: Reactor core, Fuel rods, Control rods (Boron/Cadmium), Moderator, Containment building [94].</li>
+          </ul>
+
+        </div>
+      </details>
+
+    </div>
+  </details>
+
+  <!-- ============================================= -->
+  <!-- MAIN ACCORDION 2: SOLVED EXAM (FEB 2026)       -->
+  <!-- ============================================= -->
+  <details>
+    <summary>📝 Fully Solved Semester Final Examination (February 2026)</summary>
+    <div class="accordion-content">
+
+      <!-- Q1 -->
+      <details>
+        <summary>Question 1 — Definitions &amp; Numerical</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>1(a) Definitions (3 Marks)</strong>
+            <ol>
+              <li><strong>Cylinder Bore:</strong> Internal diameter of the engine cylinder.</li>
+              <li><strong>Mean Effective Pressure (MEP):</strong> Average constant pressure acting on the piston that would produce the same net work as the varying actual cycle pressure.</li>
+              <li><strong>Specific Fuel Consumption (SFC):</strong> Mass of fuel consumed per unit of power developed per hour (kg/kW·hr).</li>
+              <li><strong>Mechanical Efficiency (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>η</mi><mi>m</mi></msub></math>):</strong> Ratio of brake power at crankshaft to indicated power inside cylinder (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>η</mi><mi>m</mi></msub><mo>=</mo><mi>b</mi><mi>p</mi><mo>/</mo><mi>i</mi><mi>p</mi></math>).</li>
+              <li><strong>Volumetric Efficiency (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>η</mi><mi>v</mi></msub></math>):</strong> Ratio of actual fresh air volume inducted per cycle to total swept volume.</li>
+              <li><strong>Calorific Value (CV):</strong> Heat energy released when 1 unit mass (or volume) of fuel burns completely in oxygen.</li>
+            </ol>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>1(b) Numerical Problem Solution (7 Marks)</strong>
+            <p><strong>Given Data:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi><mi>p</mi><mo>=</mo><mn>50</mn><mtext>&#160;kW</mtext></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>η</mi><mrow><mi>b</mi><mi>t</mi><mi>h</mi></mrow></msub><mo>=</mo><mn>0.35</mn></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi><mi>V</mi><mo>=</mo><mn>42,000</mn><mtext>&#160;kJ/kg</mtext></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>A/F</mtext><mo>=</mo><mn>15</mn></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ρ</mi><mi>a</mi></msub><mo>=</mo><mn>1.15</mn><mtext>&#160;kg/m</mtext><msup><mtext></mtext><mn>3</mn></msup></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>D</mi><mo>=</mo><mn>0.12</mn><mtext>&#160;m</mtext></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mo>=</mo><mn>0.10</mn><mtext>&#160;m</mtext></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi><mo>=</mo><mn>1500</mn><mtext>&#160;rpm</mtext></math>, 4‑cylinder 4‑stroke, <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>η</mi><mi>m</mi></msub><mo>=</mo><mn>0.80</mn></math>.</p>
+
+            <p><strong>1. Fuel Consumption (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mover><mi>m</mi><mo>˙</mo></mover><mi>f</mi></msub></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>η</mi><mrow><mi>b</mi><mi>t</mi><mi>h</mi></mrow></msub>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow><mi>b</mi><mi>p</mi></mrow>
+                  <mrow><msub><mover><mi>m</mi><mo>˙</mo></mover><mi>f</mi></msub><mo>⋅</mo><mi>C</mi><mi>V</mi></mrow>
+                </mfrac>
+                <mspace width="0.5em"/>
+                <mo>⇒</mo>
+                <mspace width="0.5em"/>
+                <msub><mover><mi>m</mi><mo>˙</mo></mover><mi>f</mi></msub>
+                <mo>=</mo>
+                <mfrac>
+                  <mn>50</mn>
+                  <mrow><mn>0.35</mn><mo>×</mo><mn>42,000</mn></mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mn>0.003401</mn>
+                <mtext>&#160;kg/s</mtext>
+                <mspace width="0.5em"/>
+                <mo>(</mo><mn>12.245</mn><mtext>&#160;kg/hr</mtext><mo>)</mo>
+              </math>
+            </div>
+
+            <p><strong>2. Air Consumption (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mover><mi>m</mi><mo>˙</mo></mover><mi>a</mi></msub></math> &amp; <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mover><mi>V</mi><mo>˙</mo></mover><mi>a</mi></msub></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mover><mi>m</mi><mo>˙</mo></mover><mi>a</mi></msub>
+                <mo>=</mo>
+                <msub><mover><mi>m</mi><mo>˙</mo></mover><mi>f</mi></msub>
+                <mo>×</mo>
+                <mn>15</mn>
+                <mo>=</mo>
+                <mn>0.003401</mn>
+                <mo>×</mo>
+                <mn>15</mn>
+                <mo>=</mo>
+                <mn>0.05102</mn>
+                <mtext>&#160;kg/s</mtext>
+              </math>
+            </div>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mover><mi>V</mi><mo>˙</mo></mover><mi>a</mi></msub>
+                <mo>=</mo>
+                <mfrac>
+                  <msub><mover><mi>m</mi><mo>˙</mo></mover><mi>a</mi></msub>
+                  <msub><mi>ρ</mi><mi>a</mi></msub>
+                </mfrac>
+                <mo>=</mo>
+                <mfrac>
+                  <mn>0.05102</mn>
+                  <mn>1.15</mn>
+                </mfrac>
+                <mo>=</mo>
+                <mn>0.04437</mn>
+                <mtext>&#160;m</mtext><msup><mtext></mtext><mn>3</mn></msup><mo>/</mo><mtext>s</mtext>
+              </math>
+            </div>
+
+            <p><strong>3. Indicated Thermal Efficiency (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>η</mi><mrow><mi>t</mi><mi>h</mi></mrow></msub></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>η</mi><mrow><mi>t</mi><mi>h</mi></mrow></msub>
+                <mo>=</mo>
+                <mfrac>
+                  <msub><mi>η</mi><mrow><mi>b</mi><mi>t</mi><mi>h</mi></mrow></msub>
+                  <msub><mi>η</mi><mi>m</mi></msub>
+                </mfrac>
+                <mo>=</mo>
+                <mfrac>
+                  <mn>0.35</mn>
+                  <mn>0.80</mn>
+                </mfrac>
+                <mo>=</mo>
+                <mn>0.4375</mn>
+                <mspace width="0.5em"/>
+                <mo>(</mo><mn>43.75</mn><mo>%</mo><mo>)</mo>
+              </math>
+            </div>
+
+            <p><strong>4. Volumetric Efficiency (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>η</mi><mi>v</mi></msub></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>V</mi><mi>s</mi></msub>
+                <mo>=</mo>
+                <mfrac><mi>π</mi><mn>4</mn></mfrac>
+                <mo>×</mo>
+                <msup><mrow><mo>(</mo><mn>0.12</mn><mo>)</mo></mrow><mn>2</mn></msup>
+                <mo>×</mo>
+                <mo>(</mo><mn>0.10</mn><mo>)</mo>
+                <mo>=</mo>
+                <mn>0.001131</mn>
+                <mtext>&#160;m</mtext><msup><mtext></mtext><mn>3</mn></msup>
+              </math>
+            </div>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mover><mi>V</mi><mo>˙</mo></mover><mi>s</mi></msub>
+                <mo>=</mo>
+                <msub><mi>V</mi><mi>s</mi></msub>
+                <mo>×</mo>
+                <mrow><mo>(</mo></mrow>
+                <mfrac>
+                  <mn>1500</mn>
+                  <mrow><mn>2</mn><mo>×</mo><mn>60</mn></mrow>
+                </mfrac>
+                <mrow><mo>)</mo></mrow>
+                <mo>×</mo>
+                <mn>4</mn>
+                <mo>=</mo>
+                <mn>0.05655</mn>
+                <mtext>&#160;m</mtext><msup><mtext></mtext><mn>3</mn></msup><mo>/</mo><mtext>s</mtext>
+              </math>
+            </div>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>η</mi><mi>v</mi></msub>
+                <mo>=</mo>
+                <mfrac>
+                  <msub><mover><mi>V</mi><mo>˙</mo></mover><mi>a</mi></msub>
+                  <msub><mover><mi>V</mi><mo>˙</mo></mover><mi>s</mi></msub>
+                </mfrac>
+                <mo>=</mo>
+                <mfrac>
+                  <mn>0.04437</mn>
+                  <mn>0.05655</mn>
+                </mfrac>
+                <mo>=</mo>
+                <mn>0.7846</mn>
+                <mspace width="0.5em"/>
+                <mo>(</mo><mn>78.46</mn><mo>%</mo><mo>)</mo>
+              </math>
+            </div>
+
+            <p><strong>5. Brake Mean Effective Pressure (<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi><mi>m</mi><mi>e</mi><mi>p</mi></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>b</mi><mi>m</mi><mi>e</mi><mi>p</mi>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow><mi>b</mi><mi>p</mi></mrow>
+                  <msub><mover><mi>V</mi><mo>˙</mo></mover><mi>s</mi></msub>
+                </mfrac>
+                <mo>=</mo>
+                <mfrac>
+                  <mn>50</mn>
+                  <mn>0.05655</mn>
+                </mfrac>
+                <mo>=</mo>
+                <mn>884.19</mn>
+                <mtext>&#160;kPa</mtext>
+                <mo>=</mo>
+                <mn>8.842</mn>
+                <mtext>&#160;bar</mtext>
+              </math>
+            </div>
+
+            <p><strong>6. Mean Piston Speed (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>U</mi><mi>p</mi></msub></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>U</mi><mi>p</mi></msub>
+                <mo>=</mo>
+                <mn>2</mn>
+                <mo>⋅</mo>
+                <mi>L</mi>
+                <mo>⋅</mo>
+                <mfrac>
+                  <mi>N</mi>
+                  <mn>60</mn>
+                </mfrac>
+                <mo>=</mo>
+                <mn>2</mn>
+                <mo>×</mo>
+                <mn>0.10</mn>
+                <mo>×</mo>
+                <mfrac>
+                  <mn>1500</mn>
+                  <mn>60</mn>
+                </mfrac>
+                <mo>=</mo>
+                <mn>5.00</mn>
+                <mtext>&#160;m/s</mtext>
+              </math>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details>
+        <summary>Question 2 — Heat Engine Classification, CI Operation, Thermodynamic Processes</summary>
+        <div class="accordion-content">
+
+          <div class="theory-short-box">
+            <strong>2(a) Heat Engine Classification (2 Marks)</strong>
+            <ul>
+              <li><strong>By Combustion Location:</strong> Internal Combustion (IC) vs. External Combustion (EC).</li>
+              <li><strong>By Motion:</strong> Reciprocating engines vs. Rotary engines.</li>
+              <li><strong>By Ignition:</strong> Spark Ignition (SI) vs. Compression Ignition (CI).</li>
+            </ul>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>2(b) Four‑Stroke CI Engine Operation (5 Marks)</strong>
+            <ol>
+              <li><strong>Suction:</strong> Pure air drawn in as piston moves TDC → BDC.</li>
+              <li><strong>Compression:</strong> Air compressed to high pressure/temp (TDC → BDC).</li>
+              <li><strong>Power:</strong> Diesel injected near TDC auto‑ignites, expanding gas drives piston BDC.</li>
+              <li><strong>Exhaust:</strong> Burned gases pushed out as piston moves BDC → TDC.</li>
+            </ol>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>2(c) Thermodynamic Processes (3 Marks)</strong>
+            <ul>
+              <li><strong>Isothermal:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mo>=</mo><mtext>const</mtext></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Δ</mi><mi>U</mi><mo>=</mo><mn>0</mn></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Q</mi><mo>=</mo><mi>W</mi></math></li>
+              <li><strong>Adiabatic:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Q</mi><mo>=</mo><mn>0</mn></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi><msup><mi>V</mi><mi>γ</mi></msup><mo>=</mo><mtext>const</mtext></math></li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details>
+        <summary>Question 3 — Valve Timing Diagram, Numerical, Mechanical Losses</summary>
+        <div class="accordion-content">
+
+          <div class="theory-short-box">
+            <strong>3(a) Valve Timing Diagram (5 Marks)</strong>
+            <p>In a four‑stroke engine, the inlet valve opens before TDC (10°–20°) and closes after BDC (40°–60°). The exhaust valve opens before BDC (40°–70°) and closes after TDC (10°–20°). This timing ensures better volumetric efficiency and exhaust scavenging.</p>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>3(b) Numerical Problem Solution (3 Marks)</strong>
+            <p>Use the indicated power formula:</p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mi>i</mi><mi>p</mi>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow>
+                    <msub><mi>p</mi><mrow><mi>i</mi><mi>m</mi></mrow></msub>
+                    <mo>⋅</mo>
+                    <mi>L</mi>
+                    <mo>⋅</mo>
+                    <mi>A</mi>
+                    <mo>⋅</mo>
+                    <mi>n</mi>
+                    <mo>⋅</mo>
+                    <mi>K</mi>
+                  </mrow>
+                  <mn>60,000</mn>
+                </mfrac>
+                <mspace width="0.5em"/>
+                <mo>[</mo><mi>kW</mi><mo>]</mo>
+              </math>
+            </div>
+            <p class="small-note">where <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>=</mo><mi>N</mi><mo>/</mo><mn>2</mn></math> for 4‑stroke and <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>=</mo><mi>N</mi></math> for 2‑stroke.</p>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>3(c) Common Mechanical Losses (2 Marks)</strong>
+            <ul>
+              <li><strong>Friction losses:</strong> Piston rings, skirt, bearings, valvetrain.</li>
+              <li><strong>Pumping losses:</strong> Drawing fresh charge and pushing out exhaust gases.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details>
+        <summary>Question 4 — Hydrocarbon Refining, SI Fuel Supply, Fuel Qualities</summary>
+        <div class="accordion-content">
+
+          <div class="theory-short-box">
+            <strong>4(a) Hydrocarbon Refining from Crude Oil (5 Marks)</strong>
+            <p>Crude oil is refined through fractional distillation (separation by boiling point), thermal and catalytic cracking (breaking heavy molecules), reformation and alkylation (rearranging structures to increase octane), and isomerization (altering structural arrangement without changing chemical formula).</p>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>4(b) SI Engine Fuel Supply System (3 Marks)</strong>
+            <p>Older engines use a carburetor to mix petrol with air in the correct ratio. Modern engines use fuel injection systems (port or direct injection) for precise fuel metering and better efficiency.</p>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>4(c) Important Qualities of SI Fuels (2 Marks)</strong>
+            <ul>
+              <li>High octane rating (resistance to knock)</li>
+              <li>High volatility (easy vaporization)</li>
+              <li>Clean burning (low deposits)</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details>
+        <summary>Question 5 — Factors Influencing Flame Speed, Abnormal Combustion</summary>
+        <div class="accordion-content">
+
+          <div class="theory-short-box">
+            <strong>5(a) Factors Influencing Flame Speed in SI Engines (5 Marks)</strong>
+            <ul>
+              <li>Air‑fuel ratio</li>
+              <li>Compression ratio</li>
+              <li>Engine speed</li>
+              <li>Combustion chamber design</li>
+              <li>Fuel type and additives</li>
+            </ul>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>5(b) Abnormal Combustion (Knocking) in SI Engines (5 Marks)</strong>
+            <p>Knocking occurs due to auto‑ignition of the unburnt end‑gas, causing a metallic pinging sound, power loss, and potential engine damage. Causes include high compression ratio, low octane fuel, and overheating.</p>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details>
+        <summary>Question 6 — Stages of Combustion in CI, SI vs CI Knocking</summary>
+        <div class="accordion-content">
+
+          <div class="theory-short-box">
+            <strong>6(a) Stages of Combustion in CI Engines (5 Marks)</strong>
+            <ol>
+              <li><strong>Ignition Delay Period:</strong> Physical delay (atomization/vaporization) and chemical delay (pre‑flame reactions).</li>
+              <li><strong>Period of Uncontrolled (Rapid) Combustion:</strong> Accumulated fuel ignites rapidly, causing a steep pressure rise.</li>
+              <li><strong>Period of Controlled Combustion:</strong> Fuel injected burns directly at high pressure/temperature, controlled by injection pump rate.</li>
+              <li><strong>Period of After‑Burning:</strong> Unburnt fuel particles continue burning up to 70°–80° after TDC.</li>
+            </ol>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>6(b) Comparison of SI vs. CI Knocking (5 Marks)</strong>
+            <p>See the full comparison table in Module 6. Key differences: SI knock occurs at the end of combustion due to auto‑ignition of end‑gas; CI knock occurs at the start due to long ignition delay. SI engines need high octane fuel; CI engines need high cetane fuel. High compression ratio promotes knock in SI but prevents knock in CI.</p>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details>
+        <summary>Question 7 — Mechanical Airflow Boosting, Scavenging Systems</summary>
+        <div class="accordion-content">
+
+          <div class="theory-short-box">
+            <strong>7(a) Mechanical Airflow Boosting Systems (4 Marks)</strong>
+            <p><strong>Supercharging:</strong> Mechanically driven compressor from engine crankshaft; consumes up to 20% engine power. Types: Centrifugal, Root's, Vane.</p>
+            <p><strong>Turbocharging:</strong> Exhaust gas turbine drives a compressor; no mechanical connection to crankshaft; utilizes waste heat/kinetic energy from exhaust gases.</p>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>7(b) Scavenging Systems in 2‑Stroke Engines (6 Marks)</strong>
+            <ul>
+              <li><strong>Cross‑Flow Scavenging:</strong> Inlet and exhaust ports on opposite sides. Simple and valveless, but leaves unswept corners.</li>
+              <li><strong>Loop Scavenging:</strong> Inlet and exhaust ports on the same side. Compact, but weakens cylinder liner.</li>
+              <li><strong>Uniflow Scavenging:</strong> Air enters bottom ports and flows straight up to top exhaust valve. Highest scavenging efficiency and power, but higher cost.</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details>
+        <summary>Question 8 — Turbocharger Working Principle, WEC Numerical</summary>
+        <div class="accordion-content">
+
+          <div class="theory-short-box">
+            <strong>8(a) Turbocharger Working Principle (5 Marks)</strong>
+            <p>Exhaust gas drives the turbine → shaft turns the compressor → dense air is forced into the cylinders. This increases the mass of air available for combustion, allowing more fuel to be burned and more power to be produced without increasing engine size.</p>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>8(b) Wave Energy Converter (WEC) Numerical Solution (5 Marks)</strong>
+            <p><strong>Given Data:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>H</mi><mo>=</mo><mn>2.5</mn><mtext>&#160;m</mtext></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mo>=</mo><mn>6</mn><mtext>&#160;s</mtext></math>, Required power <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi><mo>=</mo><mn>280</mn><mtext>&#160;kW</mtext></math>.</p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mtext>Power per meter</mtext>
+                <mrow><mo>(</mo></mrow>
+                <mfrac><mi>P</mi><mi>L</mi></mfrac>
+                <mrow><mo>)</mo></mrow>
+                <mo>≈</mo>
+                <mn>0.50</mn>
+                <mo>×</mo>
+                <msup><mi>H</mi><mn>2</mn></msup>
+                <mo>×</mo>
+                <mi>T</mi>
+                <mo>=</mo>
+                <mn>0.50</mn>
+                <mo>×</mo>
+                <msup><mrow><mo>(</mo><mn>2.5</mn><mo>)</mo></mrow><mn>2</mn></msup>
+                <mo>×</mo>
+                <mn>6</mn>
+                <mo>=</mo>
+                <mn>18.75</mn>
+                <mtext>&#160;kW/m</mtext>
+              </math>
+            </div>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mtext>Required Length</mtext>
+                <mrow><mo>(</mo><mi>L</mi><mo>)</mo></mrow>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow><mn>280</mn><mtext>&#160;kW</mtext></mrow>
+                  <mrow><mn>18.75</mn><mtext>&#160;kW/m</mtext></mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mn>14.93</mn>
+                <mtext>&#160;meters</mtext>
+              </math>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+    </div>
+  </details>
+
+  <!-- ============================================= -->
+  <!-- MAIN ACCORDION 3: PREVIOUS YEARS (2024–2025)  -->
+  <!-- ============================================= -->
+  <details>
+    <summary>📚 Fully Solved Previous Years' Question Bank (2024–2025)</summary>
+    <div class="accordion-content">
+
+      <details>
+        <summary>Topic 1: Otto &amp; Diesel Cycle Derivations &amp; Numericals</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>Derivation of Diesel Cycle Thermal Efficiency</strong>
+            <p><strong>Heat Added (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>Q</mi><mi>S</mi></msub></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>Q</mi><mi>S</mi></msub>
+                <mo>=</mo>
+                <mi>m</mi>
+                <msub><mi>C</mi><mi>p</mi></msub>
+                <mo>(</mo>
+                <msub><mi>T</mi><mn>3</mn></msub>
+                <mo>−</mo>
+                <msub><mi>T</mi><mn>2</mn></msub>
+                <mo>)</mo>
+              </math>
+            </div>
+            <p><strong>Heat Rejected (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>Q</mi><mi>R</mi></msub></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>Q</mi><mi>R</mi></msub>
+                <mo>=</mo>
+                <mi>m</mi>
+                <msub><mi>C</mi><mi>v</mi></msub>
+                <mo>(</mo>
+                <msub><mi>T</mi><mn>4</mn></msub>
+                <mo>−</mo>
+                <msub><mi>T</mi><mn>1</mn></msub>
+                <mo>)</mo>
+              </math>
+            </div>
+            <p><strong>Thermal Efficiency:</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>η</mi><mtext>Diesel</mtext></msub>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>−</mo>
+                <mfrac>
+                  <msub><mi>Q</mi><mi>R</mi></msub>
+                  <msub><mi>Q</mi><mi>S</mi></msub>
+                </mfrac>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>−</mo>
+                <mfrac>
+                  <mrow>
+                    <mi>m</mi>
+                    <msub><mi>C</mi><mi>v</mi></msub>
+                    <mo>(</mo>
+                    <msub><mi>T</mi><mn>4</mn></msub>
+                    <mo>−</mo>
+                    <msub><mi>T</mi><mn>1</mn></msub>
+                    <mo>)</mo>
+                  </mrow>
+                  <mrow>
+                    <mi>m</mi>
+                    <msub><mi>C</mi><mi>p</mi></msub>
+                    <mo>(</mo>
+                    <msub><mi>T</mi><mn>3</mn></msub>
+                    <mo>−</mo>
+                    <msub><mi>T</mi><mn>2</mn></msub>
+                    <mo>)</mo>
+                  </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>−</mo>
+                <mfrac>
+                  <mn>1</mn>
+                  <mi>γ</mi>
+                </mfrac>
+                <mrow><mo>[</mo></mrow>
+                <mfrac>
+                  <mrow>
+                    <msub><mi>T</mi><mn>4</mn></msub>
+                    <mo>−</mo>
+                    <msub><mi>T</mi><mn>1</mn></msub>
+                  </mrow>
+                  <mrow>
+                    <msub><mi>T</mi><mn>3</mn></msub>
+                    <mo>−</mo>
+                    <msub><mi>T</mi><mn>2</mn></msub>
+                  </mrow>
+                </mfrac>
+                <mrow><mo>]</mo></mrow>
+              </math>
+            </div>
+            <p>Expressing temperatures in terms of compression ratio <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi><mo>=</mo><msub><mi>V</mi><mn>1</mn></msub><mo>/</mo><msub><mi>V</mi><mn>2</mn></msub></math> and cut‑off ratio <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>r</mi><mi>c</mi></msub><mo>=</mo><msub><mi>V</mi><mn>3</mn></msub><mo>/</mo><msub><mi>V</mi><mn>2</mn></msub></math>:</p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>η</mi><mtext>Diesel</mtext></msub>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>−</mo>
+                <mfrac>
+                  <mn>1</mn>
+                  <msup><mi>r</mi><mrow><mi>γ</mi><mo>−</mo><mn>1</mn></mrow></msup>
+                </mfrac>
+                <mrow><mo>[</mo></mrow>
+                <mfrac>
+                  <mrow>
+                    <msubsup><mi>r</mi><mi>c</mi><mi>γ</mi></msubsup>
+                    <mo>−</mo>
+                    <mn>1</mn>
+                  </mrow>
+                  <mrow>
+                    <mi>γ</mi>
+                    <mo>(</mo>
+                    <msub><mi>r</mi><mi>c</mi></msub>
+                    <mo>−</mo>
+                    <mn>1</mn>
+                    <mo>)</mo>
+                  </mrow>
+                </mfrac>
+                <mrow><mo>]</mo></mrow>
+              </math>
+            </div>
+          </div>
+
+          <div class="theory-short-box">
+            <strong>Otto Cycle Numerical (2025 Exam)</strong>
+            <p><strong>Given Data:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi><mo>=</mo><mn>5.5</mn></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>P</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn><mtext>&#160;bar</mtext></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>T</mi><mn>1</mn></msub><mo>=</mo><mn>300</mn><mtext>&#160;K</mtext></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>P</mi><mn>3</mn></msub><mo>=</mo><mn>30</mn><mtext>&#160;bar</mtext></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>γ</mi><mo>=</mo><mn>1.4</mn></math>.</p>
+
+            <p><strong>Efficiency (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>η</mi><mtext>Otto</mtext></msub></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>η</mi><mtext>Otto</mtext></msub>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>−</mo>
+                <mfrac>
+                  <mn>1</mn>
+                  <msup><mrow><mo>(</mo><mn>5.5</mn><mo>)</mo></mrow><mn>0.4</mn></msup>
+                </mfrac>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>−</mo>
+                <mn>0.5056</mn>
+                <mo>=</mo>
+                <mn>49.44</mn><mo>%</mo>
+              </math>
+            </div>
+
+            <p><strong>End of Compression (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>P</mi><mn>2</mn></msub></math>, <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>T</mi><mn>2</mn></msub></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>P</mi><mn>2</mn></msub>
+                <mo>=</mo>
+                <msub><mi>P</mi><mn>1</mn></msub>
+                <mo>⋅</mo>
+                <msup><mi>r</mi><mi>γ</mi></msup>
+                <mo>=</mo>
+                <mn>1</mn>
+                <mo>×</mo>
+                <msup><mrow><mo>(</mo><mn>5.5</mn><mo>)</mo></mrow><mn>1.4</mn></msup>
+                <mo>=</mo>
+                <mn>10.88</mn>
+                <mtext>&#160;bar</mtext>
+              </math>
+            </div>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <msub><mi>T</mi><mn>2</mn></msub>
+                <mo>=</mo>
+                <msub><mi>T</mi><mn>1</mn></msub>
+                <mo>⋅</mo>
+                <msup><mi>r</mi><mrow><mi>γ</mi><mo>−</mo><mn>1</mn></mrow></msup>
+                <mo>=</mo>
+                <mn>300</mn>
+                <mo>×</mo>
+                <msup><mrow><mo>(</mo><mn>5.5</mn><mo>)</mo></mrow><mn>0.4</mn></msup>
+                <mo>=</mo>
+                <mn>593.3</mn>
+                <mtext>&#160;K</mtext>
+              </math>
+            </div>
+
+            <p><strong>Peak Temperature (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>T</mi><mn>3</mn></msub></math>):</strong></p>
+            <div class="formula-container">
+              <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                <mfrac>
+                  <msub><mi>T</mi><mn>3</mn></msub>
+                  <msub><mi>T</mi><mn>2</mn></msub>
+                </mfrac>
+                <mo>=</mo>
+                <mfrac>
+                  <msub><mi>P</mi><mn>3</mn></msub>
+                  <msub><mi>P</mi><mn>2</mn></msub>
+                </mfrac>
+                <mspace width="0.5em"/>
+                <mo>⇒</mo>
+                <mspace width="0.5em"/>
+                <msub><mi>T</mi><mn>3</mn></msub>
+                <mo>=</mo>
+                <mn>593.3</mn>
+                <mo>×</mo>
+                <mfrac>
+                  <mn>30</mn>
+                  <mn>10.88</mn>
+                </mfrac>
+                <mo>=</mo>
+                <mn>1635.9</mn>
+                <mtext>&#160;K</mtext>
+              </math>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+      <details>
+        <summary>Topic 2: Additional Exam Terms &amp; Short Concepts</summary>
+        <div class="accordion-content">
+
+          <div class="definition-box">
+            <strong>Key Terms</strong>
+            <ul>
+              <li><strong>Clearance Volume (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>V</mi><mi>c</mi></msub></math>):</strong> Volume of the cylinder above the piston crown when at TDC [8].</li>
+              <li><strong>Swept Volume (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>V</mi><mi>s</mi></msub></math>):</strong> Volume displaced by the piston moving between TDC and BDC (<math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>V</mi><mi>s</mi></msub><mo>=</mo><mfrac><mi>π</mi><mn>4</mn></mfrac><msup><mi>D</mi><mn>2</mn></msup><mi>L</mi></math>) [8].</li>
+              <li><strong>Gudgeon Pin (Wrist Pin):</strong> Pin connecting the small end of the connecting rod to the piston [8].</li>
+              <li><strong>TNT Equivalent:</strong> Benchmark scale comparing explosive heat energy release rates [5].</li>
+              <li><strong>Fuel Blending:</strong> Mixing refined products in specific proportions to achieve desired volatility, octane, or cetane specifications [5, 29].</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+
+    </div>
+  </details>
+
+</div>
+
+<script>
+  (function() {
+    // Expand All
+    document.getElementById('expandAllBtn').addEventListener('click', function() {
+      document.querySelectorAll('details').forEach(function(det) {
+        det.open = true;
+      });
+    });
+
+    // Collapse All
+    document.getElementById('collapseAllBtn').addEventListener('click', function() {
+      document.querySelectorAll('details').forEach(function(det) {
+        det.open = false;
+      });
+    });
+  })();
+</script>
+</body>
+</html>
