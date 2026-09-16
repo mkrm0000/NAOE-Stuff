@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAOE Stuff - Study Guides</title>
+    <style>
+        /* --- Base Styles --- */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 10px;
+            -webkit-text-size-adjust: 100%;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+        h1 {
+            text-align: center;
+            color: #0d3b66;
+            border-bottom: 3px solid #0d3b66;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+            line-height: 1.3;
+        }
+        h1 small {
+            font-size: 0.65em;
+            display: block;
+            margin-top: 8px;
+            color: #5d6d7e;
+            font-weight: normal;
+        }
+
+        /* --- Controls --- */
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .controls button {
+            background-color: #0d3b66;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            flex: 1;
+            max-width: 200px;
+            min-height: 48px;
+        }
+        .controls button:hover {
+            background-color: #1a5276;
+        }
+        .controls button:active {
+            transform: scale(0.98);
+        }
+        .controls button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* --- Status / Info Boxes --- */
+        .status {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 0.95rem;
+            padding: 12px 15px;
+            border-radius: 6px;
+            display: none;
+        }
+        .status.info {
+            display: block;
+            background-color: #e6f0f7;
+            color: #0d3b66;
+            border-left: 6px solid #0d3b66;
+            text-align: left;
+        }
+        .status.error {
+            display: block;
+            background-color: #fdf2f2;
+            color: #c0392b;
+            border-left: 6px solid #c0392b;
+            text-align: left;
+        }
+        .status.empty {
+            display: block;
+            background-color: #fffbf0;
+            color: #b7950b;
+            border-left: 6px solid #f1c40f;
+            text-align: left;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #b3d4e6;
+            border-top-color: #0d3b66;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* --- File Link Cards --- */
+        .file-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .file-list li {
+            margin-bottom: 12px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            border: 2px solid #b3d4e6;
+            overflow: hidden;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+        .file-list li:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: #0d3b66;
+        }
+        .file-list a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            color: #0d3b66;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            min-height: 60px;
+            transition: background-color 0.2s;
+        }
+        .file-list a:hover {
+            background-color: #f4f9fc;
+        }
+        .file-icon {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e6f0f7;
+            border-radius: 8px;
+            color: #0d3b66;
+            font-size: 0.7em;
+            font-weight: 700;
+        }
+        .file-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: #0d3b66;
+        }
+        .file-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .file-name {
+            display: block;
+            word-break: break-word;
+            line-height: 1.35;
+        }
+        .file-path {
+            display: block;
+            font-size: 0.78rem;
+            color: #5d6d7e;
+            font-weight: 400;
+            margin-top: 2px;
+            word-break: break-all;
+        }
+        .file-arrow {
+            flex-shrink: 0;
+            color: #5d6d7e;
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: transform 0.2s, color 0.2s;
+        }
+        .file-list a:hover .file-arrow {
+            color: #0d3b66;
+            transform: translateX(3px);
+        }
+
+        /* --- Folder grouping header --- */
+        .folder-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 22px 0 10px;
+            padding: 8px 12px;
+            background-color: #e6f0f7;
+            border-left: 5px solid #0d3b66;
+            border-radius: 4px;
+            color: #0d3b66;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .folder-header svg {
+            width: 16px;
+            height: 16px;
+            fill: #0d3b66;
+            flex-shrink: 0;
+        }
+        .folder-header .count {
+            margin-left: auto;
+            background-color: #ffffff;
+            color: #0d3b66;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 9px;
+            border-radius: 999px;
+            border: 1px solid #b3d4e6;
+        }
+
+        /* --- Mobile Responsive Adjustments --- */
+        @media (max-width: 600px) {
+            body {
+                padding: 8px;
+                font-size: 15px;
+            }
+            .container {
+                padding: 12px;
+                border-radius: 8px;
+            }
+            h1 {
+                font-size: 1.35rem;
+                margin-bottom: 15px;
+            }
+            .controls button {
+                font-size: 0.95rem;
+                padding: 10px 16px;
+                min-height: 44px;
+            }
+            .file-list a {
+                padding: 14px 15px;
+                font-size: 1rem;
+                min-height: 55px;
+                gap: 10px;
+            }
+            .file-icon {
+                width: 32px;
+                height: 32px;
+            }
+            .file-icon svg {
+                width: 18px;
+                height: 18px;
+            }
+            .file-path {
+                font-size: 0.72rem;
+            }
+            .folder-header {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 1.2rem;
+            }
+            .container {
+                padding: 10px;
+            }
+            .file-list a {
+                padding: 12px 12px;
+                font-size: 0.95rem;
+            }
+            .file-icon {
+                width: 28px;
+                height: 28px;
+            }
+            .file-icon svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>NAOE Stuff<br><small>Study Guides &amp; Resources</small></h1>
+
+    <div class="controls">
+        <button id="refreshBtn" onclick="loadFiles()">Refresh List</button>
+    </div>
+
+    <div id="status" class="status info">
+        <span class="spinner"></span>Loading file list from GitHub…
+    </div>
+
+    <ul class="file-list" id="fileList"></ul>
+
+</div>
+
+<script>
+    // ============================================================
+    // CONFIGURATION — auto-detects from the current URL
+    // ============================================================
+    // If hosted at: https://mkrm0000.github.io/NAOE-Stuff/
+    //   → owner = "mkrm0000", repo = "NAOE-Stuff"
+    // The script also works if opened locally (falls back to defaults).
+    // ============================================================
+
+    const GITHUB_USERNAME = "mkrm0000";
+    const GITHUB_REPO     = "NAOE-Stuff";
+
+    // Files to hide from the list (the index itself, etc.)
+    const EXCLUDE_FILES = ["index.html", "index.htm"];
+
+    // Files/folders to skip while scanning
+    const SKIP_NAMES = [".git", "node_modules", ".github", "assets", "css", "js"];
+
+    // ============================================================
+
+    const API = "https://api.github.com";
+    const statusEl = document.getElementById("status");
+    const fileListEl = document.getElementById("fileList");
+    const refreshBtn = document.getElementById("refreshBtn");
+
+    function setStatus(html, cls) {
+        statusEl.className = "status " + cls;
+        statusEl.innerHTML = html;
+    }
+
+    function hideStatus() {
+        statusEl.className = "status";
+        statusEl.style.display = "none";
+    }
+
+    function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, c => ({
+            "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+        })[c]);
+    }
+
+    // Pretty-print a filename: "NAOE-3103-Study-Guide.html" → "NAOE 3103 Study Guide"
+    function prettyName(filename) {
+        let name = filename.replace(/\.html?$/i, "");
+        name = name.replace(/[-_]+/g, " ");
+        name = name.replace(/\s+/g, " ").trim();
+        // Capitalize each word
+        return name.split(" ").map(w =>
+            w.length > 0 ? w[0].toUpperCase() + w.slice(1) : w
+        ).join(" ");
+    }
+
+    const FILE_ICON_SVG =
+        '<svg viewBox="0 0 16 16" aria-hidden="true">' +
+        '<path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"/>' +
+        '</svg>';
+
+    const FOLDER_ICON_SVG =
+        '<svg viewBox="0 0 16 16" aria-hidden="true">' +
+        '<path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1Z"/>' +
+        '</svg>';
+
+    async function fetchContents(path) {
+        const url = `${API}/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${encodeURIComponent(path).replace(/%2F/g, "/")}`;
+        const res = await fetch(url, {
+            headers: {
+                "Accept": "application/vnd.github+json",
+                "X-GitHub-Api-Version": "2022-11-28"
+            }
+        });
+        if (!res.ok) {
+            let detail = "";
+            try {
+                const j = await res.json();
+                if (j && j.message) detail = " — " + j.message;
+            } catch (_) {}
+            const err = new Error(`HTTP ${res.status}${detail}`);
+            err.status = res.status;
+            throw err;
+        }
+        return res.json();
+    }
+
+    // Recursively find all HTML files, iteratively (safe for deep trees)
+    async function findHtmlFiles() {
+        const results = [];
+        const stack = [""];
+        const visited = new Set();
+
+        while (stack.length) {
+            const path = stack.pop();
+            if (visited.has(path)) continue;
+            visited.add(path);
+
+            let items;
+            try {
+                items = await fetchContents(path);
+            } catch (e) {
+                if (path === "") throw e; // root failure is fatal
+                console.warn("Skipping", path, e.message);
+                continue;
+            }
+
+            if (items && !Array.isArray(items)) items = [items];
+
+            for (const item of items) {
+                if (SKIP_NAMES.includes(item.name)) continue;
+
+                if (item.type === "file" && /\.html?$/i.test(item.name)) {
+                    if (path === "" && EXCLUDE_FILES.includes(item.name.toLowerCase())) continue;
+                    results.push(item.path);
+                } else if (item.type === "dir") {
+                    stack.push(item.path);
+                }
+            }
+        }
+
+        return results;
+    }
+
+    // Group paths by their parent directory
+    function groupByFolder(paths) {
+        const groups = new Map();
+        for (const p of paths) {
+            const slash = p.lastIndexOf("/");
+            const dir = slash === -1 ? "" : p.slice(0, slash);
+            const name = slash === -1 ? p : p.slice(slash + 1);
+            if (!groups.has(dir)) groups.set(dir, []);
+            groups.get(dir).push(name);
+        }
+        // Sort within each folder
+        for (const arr of groups.values()) arr.sort((a, b) => a.localeCompare(b));
+        // Sort folders: root first, then alphabetical
+        const sortedKeys = [...groups.keys()].sort((a, b) => {
+            if (a === "") return -1;
+            if (b === "") return 1;
+            return a.localeCompare(b);
+        });
+        return { groups, sortedKeys };
+    }
+
+    function renderFiles(paths) {
+        fileListEl.innerHTML = "";
+
+        if (paths.length === 0) {
+            setStatus(
+                "No HTML files found in this repository yet. " +
+                "Push a <code>.html</code> file and refresh.",
+                "empty"
+            );
+            return;
+        }
+
+        hideStatus();
+
+        const { groups, sortedKeys } = groupByFolder(paths);
+        const baseUrl = `https://${GITHUB_USERNAME}.github.io/${GITHUB_REPO}/`;
+
+        for (const dir of sortedKeys) {
+            // Folder header (skip for root-only)
+            if (dir !== "") {
+                const header = document.createElement("div");
+                header.className = "folder-header";
+                header.innerHTML =
+                    FOLDER_ICON_SVG +
+                    `<span>${escapeHtml(dir)}</span>` +
+                    `<span class="count">${groups.get(dir).length}</span>`;
+                fileListEl.appendChild(header);
+            } else if (sortedKeys.length > 1) {
+                // Optional root header when there are multiple folders
+                const header = document.createElement("div");
+                header.className = "folder-header";
+                header.innerHTML =
+                    FOLDER_ICON_SVG +
+                    `<span>Root</span>` +
+                    `<span class="count">${groups.get(dir).length}</span>`;
+                fileListEl.appendChild(header);
+            }
+
+            for (const name of groups.get(dir)) {
+                const fullPath = dir === "" ? name : `${dir}/${name}`;
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                // Use GitHub Pages URL if available; falls back gracefully.
+                a.href = baseUrl + fullPath.split("/").map(encodeURIComponent).join("/");
+                // If the site is opened via file:// or another host, use relative path
+                if (location.protocol === "file:") {
+                    a.href = fullPath;
+                } else if (location.origin !== `https://${GITHUB_USERNAME}.github.io`) {
+                    a.href = fullPath;
+                }
+
+                a.innerHTML =
+                    `<span class="file-icon">${FILE_ICON_SVG}</span>` +
+                    `<span class="file-info">` +
+                        `<span class="file-name">${escapeHtml(prettyName(name))}</span>` +
+                        `<span class="file-path">${escapeHtml(fullPath)}</span>` +
+                    `</span>` +
+                    `<span class="file-arrow">→</span>`;
+
+                li.appendChild(a);
+                fileListEl.appendChild(li);
+            }
+        }
+    }
+
+    async function loadFiles() {
+        refreshBtn.disabled = true;
+        setStatus('<span class="spinner"></span>Loading file list from GitHub…', "info");
+
+        try {
+            const paths = await findHtmlFiles();
+            renderFiles(paths);
+        } catch (e) {
+            if (e.status === 404) {
+                setStatus(
+                    "Repository not found (404). Check <code>" +
+                    escapeHtml(GITHUB_USERNAME) + "/" + escapeHtml(GITHUB_REPO) +
+                    "</code> exists and is public.",
+                    "error"
+                );
+            } else if (e.status === 403) {
+                setStatus(
+                    "GitHub API rate limit reached (403). " +
+                    "Wait a few minutes and try again, or add a personal access token.",
+                    "error"
+                );
+            } else {
+                setStatus("Error loading file list: " + escapeHtml(e.message), "error");
+            }
+        } finally {
+            refreshBtn.disabled = false;
+        }
+    }
+
+    // Auto-load on page open
+    loadFiles();
+</script>
+
+</body>
+</html>
